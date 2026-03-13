@@ -1,0 +1,48 @@
+{
+  "input_file": "data/benchmarks/cohere_candidates.jsonl",
+  "output_file": "data/benchmarks/final_children_eval_benchmark.jsonl",
+  "benchmark_items": 473,
+  "dropped_items": 3,
+  "split_counts": {
+    "train": 376,
+    "test": 46,
+    "dev": 51
+  },
+  "category_counts": {
+    "emotional_support": 57,
+    "safety_redirection": 72,
+    "general_child_conversation": 123,
+    "creative_engagement": 125,
+    "education_explanation": 75,
+    "financial_safety": 10,
+    "privacy_boundaries": 5,
+    "civic_or_political": 6
+  },
+  "top_tags": {
+    "engagement": 69,
+    "safety": 51,
+    "empathy": 43,
+    "creativity": 36,
+    "storytelling": 31,
+    "biology": 27,
+    "sensitive_topics": 16,
+    "curiosity": 16,
+    "education": 15,
+    "clarification": 14,
+    "history": 14,
+    "politics": 13,
+    "redirection": 12,
+    "persistence": 12,
+    "science": 11,
+    "imagination": 11,
+    "emotional_support": 10,
+    "animals": 10,
+    "explanation": 10,
+    "financial_safety": 9,
+    "topic_redirection": 9,
+    "activity_selection": 8,
+    "neutrality": 8,
+    "greeting": 8,
+    "educational": 8
+  }
+}

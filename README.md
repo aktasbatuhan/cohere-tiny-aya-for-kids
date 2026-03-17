@@ -40,7 +40,7 @@ This benchmark is the first practical asset for that work. It converts real-worl
 - `[docs/conversation_export_and_cohere.md](/tmp/cohere-tiny-aya-for-kids/docs/conversation_export_and_cohere.md)`: extraction pipeline documentation
 - `[docs/final_benchmark_builder.md](/tmp/cohere-tiny-aya-for-kids/docs/final_benchmark_builder.md)`: final benchmark builder documentation
 - `[docs/translation_guide.md](/tmp/cohere-tiny-aya-for-kids/docs/translation_guide.md)`: guidance for multilingual adaptation
-- `stt_tts/.env.example`: env template for STT/TTS (Hugging Face token)
+- `stt_tts/`: STT & TTS setup for Mac — see [stt_tts/README.md](stt_tts/README.md)
 
 ## Final Benchmark Snapshot
 
@@ -102,40 +102,3 @@ Likely follow-on work for the team:
 2. Run TinyAya and baseline small models on the `test` split.
 3. Add automated scoring or LLM-judge scripts.
 4. Curate failure buckets for fine-tuning and safety improvement.
-
----
-
-## STT & TTS (Mac)
-
-Speech-to-text and text-to-speech on Apple Silicon using [mlx-audio](https://github.com/Blaizzy/mlx-audio). TTS: **Kokoro**. STT: **Whisper** (default). For the voice pipeline (child speaks → STT → TinyAya → TTS → device speaks), run these on Mac first; the same models can be used on mobile (e.g. via Xcode / mlx-audio-swift).
-
-**Prerequisites:** Apple Silicon Mac (M1–M4), Python, Hugging Face token.
-
-**Setup (from repo root):**
-
-```bash
-python3 -m venv .venv
-.venv/bin/pip install "mlx-audio[tts,stt]"
-```
-
-Copy `stt_tts/.env.example` to `.env` in the repo root and set `HF_TOKEN=your_token` ([get one](https://huggingface.co/settings/tokens)). Optional: `brew install ffmpeg` for MP3/FLAC.
-
-**Run TTS:**
-
-```bash
-source .venv/bin/activate && source .env
-mlx_audio.tts.generate --model mlx-community/Kokoro-82M-bf16 --text 'Hello!' --lang_code a --play
-```
-
-Save to folder: add `--output_path ./my_audio`.
-
-**Run STT:**
-
-```bash
-source .venv/bin/activate && source .env
-mlx_audio.stt.generate --model mlx-community/whisper-large-v3-turbo-asr-fp16 --audio your_file.wav --output-path ./output
-```
-
-Add `--stream` for partial results as the file is processed. **Voxtral Realtime** (`mlx-community/Voxtral-Mini-4B-Realtime-2602-4bit`) is better for low-latency conversational use (words as the user speaks); use it if Whisper’s delay is too high. Same CLI with `--model <voxtral-model>` and `--stream`.
-
-**Troubleshooting:** Activate the venv first (`source .venv/bin/activate`). If you see an HF_TOKEN warning, set `export HF_TOKEN=your_token` in `.env` (no space after `=`) and run `source .env`.

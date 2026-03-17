@@ -1,12 +1,6 @@
-# STT & TTS on Mac (Kokoro + Whisper)
+# STT & TTS (Mac)
 
-Runs **speech-to-text (STT)** and **text-to-speech (TTS)** on Apple Silicon via [mlx-audio](https://github.com/Blaizzy/mlx-audio). No Xcode needed for Mac. TTS: **Kokoro**. STT: **Whisper** (default). For the voice pipeline (child speaks → STT → TinyAya → TTS → device speaks), run these on Mac first; the same models can be used on mobile (e.g. via Xcode / mlx-audio-swift).
-
----
-
-## Prerequisites
-
-- Apple Silicon Mac (M1–M4), Python, Hugging Face token in `.env` (see below).
+Voice pipeline on Apple Silicon using [mlx-audio](https://github.com/Blaizzy/mlx-audio): **Kokoro** for TTS, **Whisper tiny** for STT. Runs locally on Mac (no Xcode); same setup can be used on mobile via mlx-audio-swift.
 
 ---
 
@@ -38,12 +32,10 @@ Save to folder: add `--output_path ./my_audio`. Other voices: `--voice af_heart`
 
 ```bash
 source .venv/bin/activate && source .env
-mlx_audio.stt.generate --model mlx-community/whisper-large-v3-turbo-asr-fp16 --audio your_file.wav --output-path ./output
+mlx_audio.stt.generate --model mlx-community/whisper-tiny-asr-fp16 --audio your_file.wav --output-path ./output
 ```
 
-Add `--stream` to get partial results as the file is processed. Add `--format json` for timestamps.
-
-**When to use Voxtral Realtime instead of Whisper:** For low-latency, conversational use (e.g. live back-and-forth with a kid), **Voxtral Realtime** is better—it’s built for streaming and gives words as the user speaks. Use it if Whisper’s delay feels too high. Model: `mlx-community/Voxtral-Mini-4B-Realtime-2602-4bit` (or `-fp16`). Same CLI with `--model <voxtral-model>` and `--stream`; it’s heavier (4B) so check performance on your device.
+Add `--stream` for partial results as the file is processed. Add `--format json` for timestamps.
 
 ---
 
@@ -61,4 +53,4 @@ Add `--stream` to get partial results as the file is processed. Add `--format js
 |--------|---------|
 | TTS (play) | `mlx_audio.tts.generate --model mlx-community/Kokoro-82M-bf16 --text 'Your text' --lang_code a --play` |
 | TTS (save) | `mlx_audio.tts.generate --model mlx-community/Kokoro-82M-bf16 --text 'Your text' --lang_code a --output_path ./my_audio` |
-| STT        | `mlx_audio.stt.generate --model mlx-community/whisper-large-v3-turbo-asr-fp16 --audio your_file.wav --output-path ./output` |
+| STT        | `mlx_audio.stt.generate --model mlx-community/whisper-tiny-asr-fp16 --audio your_file.wav --output-path ./output` |

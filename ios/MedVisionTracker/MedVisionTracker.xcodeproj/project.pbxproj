@@ -1,0 +1,559 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1587366D2F1D6148002E4D31 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587366C2F1D6148002E4D31 /* DebugView.swift */; };
+		D10000100000000000000001 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10000110000000000000001 /* Accelerate.framework */; };
+		D10000100000000000000002 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10000110000000000000002 /* Metal.framework */; };
+		D10000100000000000000003 /* llama.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10000110000000000000003 /* llama.xcframework */; };
+		D10000100000000000000004 /* llama.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D10000110000000000000003 /* llama.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D10000100000000000000005 /* KokoroSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D10000150000000000000001 /* KokoroSwift */; };
+		D10000100000000000000006 /* KokoroSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = D10000150000000000000001 /* KokoroSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		D10000100000000000000007 /* MLXUtilsLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = D10000150000000000000002 /* MLXUtilsLibrary */; };
+		D10000100000000000000008 /* SwiftWhisper in Frameworks */ = {isa = PBXBuildFile; productRef = D10000150000000000000003 /* SwiftWhisper */; };
+		B1000014001 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000014000 /* OnboardingView.swift */; };
+		B1000015001 /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000015000 /* InsightsView.swift */; };
+		B1000016001 /* EdgeAIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000016000 /* EdgeAIView.swift */; };
+		B1000001001 /* HealixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001000 /* HealixApp.swift */; };
+		B1000002001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000002000 /* ContentView.swift */; };
+		B1000003001 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000003000 /* AnalysisView.swift */; };
+		B1000004001 /* AnalysisResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000004000 /* AnalysisResultsView.swift */; };
+		B1000005001 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000005000 /* HistoryView.swift */; };
+		B1000006001 /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000006000 /* HealthView.swift */; };
+		B1000007001 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000007000 /* SettingsView.swift */; };
+		B1000008001 /* MedicalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000008000 /* MedicalRecord.swift */; };
+		B1000009001 /* MedGemmaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000009000 /* MedGemmaService.swift */; };
+		B1000010001 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000010000 /* HealthKitManager.swift */; };
+		B1000011001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1000011000 /* Assets.xcassets */; };
+		C1000001001 /* MLXVLM in Frameworks */ = {isa = PBXBuildFile; productRef = C1000001000 /* MLXVLM */; };
+		C1000002001 /* MLXLMCommon in Frameworks */ = {isa = PBXBuildFile; productRef = C1000002000 /* MLXLMCommon */; };
+		C1000003001 /* MLX in Frameworks */ = {isa = PBXBuildFile; productRef = C1000003000 /* MLX */; };
+		C1000004001 /* Tokenizers in Frameworks */ = {isa = PBXBuildFile; productRef = C1000004000 /* Tokenizers */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D10000120000000000000001 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D10000100000000000000004 /* llama.xcframework in Embed Frameworks */,
+				D10000100000000000000006 /* KokoroSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1587366C2F1D6148002E4D31 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugView.swift; path = Views/DebugView.swift; sourceTree = "<group>"; };
+		D10000110000000000000001 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		D10000110000000000000002 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		D10000110000000000000003 /* llama.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Frameworks/llama.xcframework; sourceTree = SOURCE_ROOT; };
+		B1000000000 /* TinyAyaKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyAyaKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1000001000 /* HealixApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealixApp.swift; sourceTree = "<group>"; };
+		B1000002000 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B1000003000 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
+		B1000004000 /* AnalysisResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisResultsView.swift; sourceTree = "<group>"; };
+		B1000005000 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		B1000006000 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
+		B1000007000 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B1000008000 /* MedicalRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecord.swift; sourceTree = "<group>"; };
+		B1000009000 /* MedGemmaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedGemmaService.swift; sourceTree = "<group>"; };
+		B1000010000 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		B1000011000 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B1000012000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1000013000 /* Healix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Healix.entitlements; sourceTree = "<group>"; };
+		B1000014000 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		B1000015000 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
+		B1000016000 /* EdgeAIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeAIView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B1000020000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D10000100000000000000001 /* Accelerate.framework in Frameworks */,
+				D10000100000000000000002 /* Metal.framework in Frameworks */,
+				D10000100000000000000003 /* llama.xcframework in Frameworks */,
+				C1000003001 /* MLX in Frameworks */,
+				D10000100000000000000005 /* KokoroSwift in Frameworks */,
+				D10000100000000000000007 /* MLXUtilsLibrary in Frameworks */,
+				D10000100000000000000008 /* SwiftWhisper in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B1000030000 = {
+			isa = PBXGroup;
+			children = (
+				B1000031000 /* TinyAyaKids */,
+				B1000032000 /* Products */,
+				D10000130000000000000001 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B1000031000 /* TinyAyaKids */ = {
+			isa = PBXGroup;
+			children = (
+				B1000001000 /* HealixApp.swift */,
+				B1000033000 /* Views */,
+				B1000034000 /* Models */,
+				B1000035000 /* Services */,
+				B1000011000 /* Assets.xcassets */,
+				B1000012000 /* Info.plist */,
+				B1000013000 /* Healix.entitlements */,
+				1587366C2F1D6148002E4D31 /* DebugView.swift */,
+			);
+			name = TinyAyaKids;
+			sourceTree = SOURCE_ROOT;
+		};
+		B1000032000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1000000000 /* TinyAyaKids.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1000033000 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1000002000 /* ContentView.swift */,
+				B1000014000 /* OnboardingView.swift */,
+				B1000003000 /* AnalysisView.swift */,
+				B1000004000 /* AnalysisResultsView.swift */,
+				B1000005000 /* HistoryView.swift */,
+				B1000015000 /* InsightsView.swift */,
+				B1000006000 /* HealthView.swift */,
+				B1000007000 /* SettingsView.swift */,
+				B1000016000 /* EdgeAIView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B1000034000 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1000008000 /* MedicalRecord.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B1000035000 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B1000009000 /* MedGemmaService.swift */,
+				B1000010000 /* HealthKitManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D10000130000000000000001 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D10000110000000000000003 /* llama.xcframework */,
+				D10000110000000000000002 /* Metal.framework */,
+				D10000110000000000000001 /* Accelerate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B1000040000 /* TinyAyaKids */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1000050000 /* Build configuration list for PBXNativeTarget "TinyAyaKids" */;
+			buildPhases = (
+				B1000041000 /* Sources */,
+				B1000020000 /* Frameworks */,
+				B1000042000 /* Resources */,
+				D10000120000000000000001 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TinyAyaKids;
+			packageProductDependencies = (
+				C1000003000 /* MLX */,
+				D10000150000000000000001 /* KokoroSwift */,
+				D10000150000000000000002 /* MLXUtilsLibrary */,
+				D10000150000000000000003 /* SwiftWhisper */,
+			);
+			productName = TinyAyaKids;
+			productReference = B1000000000 /* TinyAyaKids.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B1000060000 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					B1000040000 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = B1000061000 /* Build configuration list for PBXProject "TinyAyaKids" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B1000030000;
+			packageReferences = (
+				C1000005000 /* XCRemoteSwiftPackageReference "mlx-swift" */,
+				D10000140000000000000001 /* XCRemoteSwiftPackageReference "kokoro-ios" */,
+				D10000140000000000000002 /* XCRemoteSwiftPackageReference "MLXUtilsLibrary" */,
+				D10000140000000000000003 /* XCRemoteSwiftPackageReference "SwiftWhisper" */,
+			);
+			productRefGroup = B1000032000 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B1000040000 /* TinyAyaKids */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B1000042000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1000011001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B1000041000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1000001001 /* HealixApp.swift in Sources */,
+				B1000002001 /* ContentView.swift in Sources */,
+				B1000003001 /* AnalysisView.swift in Sources */,
+				B1000009001 /* MedGemmaService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B1000070000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B1000070001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B1000080000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Healix.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YZZV5G432Y;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "TinyAya Kids";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aktasbatuhan.tinyayakids;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B1000080001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Healix.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YZZV5G432Y;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "TinyAya Kids";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aktasbatuhan.tinyayakids;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B1000050000 /* Build configuration list for PBXNativeTarget "TinyAyaKids" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1000080000 /* Debug */,
+				B1000080001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1000061000 /* Build configuration list for PBXProject "TinyAyaKids" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1000070000 /* Debug */,
+				B1000070001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C1000000000 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ml-explore/mlx-swift-lm.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		C1000005000 /* XCRemoteSwiftPackageReference "mlx-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ml-explore/mlx-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.30.0;
+			};
+		};
+		C1000006000 /* XCRemoteSwiftPackageReference "swift-transformers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huggingface/swift-transformers";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+		D10000140000000000000001 /* XCRemoteSwiftPackageReference "kokoro-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mlalma/kokoro-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.10;
+			};
+		};
+		D10000140000000000000002 /* XCRemoteSwiftPackageReference "MLXUtilsLibrary" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mlalma/MLXUtilsLibrary.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.0.6;
+			};
+		};
+		D10000140000000000000003 /* XCRemoteSwiftPackageReference "SwiftWhisper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exPHAT/SwiftWhisper.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C1000001000 /* MLXVLM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1000000000 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXVLM;
+		};
+		C1000002000 /* MLXLMCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1000000000 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
+			productName = MLXLMCommon;
+		};
+		C1000003000 /* MLX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1000005000 /* XCRemoteSwiftPackageReference "mlx-swift" */;
+			productName = MLX;
+		};
+		C1000004000 /* Tokenizers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1000006000 /* XCRemoteSwiftPackageReference "swift-transformers" */;
+			productName = Tokenizers;
+		};
+		D10000150000000000000001 /* KokoroSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D10000140000000000000001 /* XCRemoteSwiftPackageReference "kokoro-ios" */;
+			productName = KokoroSwift;
+		};
+		D10000150000000000000002 /* MLXUtilsLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D10000140000000000000002 /* XCRemoteSwiftPackageReference "MLXUtilsLibrary" */;
+			productName = MLXUtilsLibrary;
+		};
+		D10000150000000000000003 /* SwiftWhisper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D10000140000000000000003 /* XCRemoteSwiftPackageReference "SwiftWhisper" */;
+			productName = SwiftWhisper;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B1000060000 /* Project object */;
+}

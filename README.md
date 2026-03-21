@@ -1,46 +1,62 @@
-# TinyAya Octo Kids Benchmark
+# TinyAya Benchmark and iOS MVP
 
-This repository contains the benchmark-building work for the TinyAya offline kids companion project.
+This repository contains two linked workstreams for the offline kids companion project:
 
-The goal is to help the team evaluate whether a small multilingual model such as TinyAya can power safe, age-appropriate, child-facing conversations offline on mobile devices.
+- a benchmark dataset and extraction pipeline derived from anonymized Octo conversations
+- an iOS MVP that runs Aya fully on device with TinyAya, Whisper tiny, and Kokoro
 
-This repo is intentionally narrow in scope:
+The project goal is to find a small multilingual model that can support safe, age-appropriate, child-facing conversations offline on mobile devices.
 
-- final benchmark dataset for evaluation
-- scripts used to derive the benchmark from anonymized Octo conversation data
-- documentation describing the extraction and finalization pipeline
-- guidance for teammates who will translate the benchmark into additional languages
+## Repository Scope
 
-It does not include:
+This repo includes:
+
+- the final benchmark dataset for evaluation
+- scripts used to derive the benchmark from anonymized conversation data
+- documentation for the export, extraction, and benchmark-building pipeline
+- an iOS MVP that proves the current on-device voice stack
+- handoff notes so teammates can build and test the app locally
+- Mac STT/TTS setup notes for the MLX-based voice experiments
+
+This repo does not include:
 
 - the Octo production app
 - raw Supabase exports
 - unredacted conversation logs
 - private credentials
 
-## Why This Exists
+## Current iOS MVP
 
-Per the project scope, the core research question is whether a compact multilingual model can replace a cloud LLM for children ages 4–8 while preserving:
+The iOS app currently runs this offline pipeline on device:
 
-- child safety
-- age-appropriate language
-- conversational quality
-- multilingual usability
-- mobile-friendly latency and privacy
+- STT: `Whisper tiny` via `SwiftWhisper` / `whisper.cpp`
+- LLM: `TinyAya` via `llama.cpp`
+- TTS: `Kokoro` via `KokoroSwift`
 
-This benchmark is the first practical asset for that work. It converts real-world child-facing conversational patterns into a reusable evaluation set that can be tested across candidate small models before and during fine-tuning.
+The current app is an iOS-first prototype for validating:
 
-## Repository Layout
+- whether TinyAya can sustain a child-facing voice experience offline
+- latency and memory behavior on a real iPhone
+- whether the end-to-end voice loop is usable enough for the next product pass
 
-- `[data/benchmark/final_children_eval_benchmark.jsonl](/tmp/cohere-tiny-aya-for-kids/data/benchmark/final_children_eval_benchmark.jsonl)`: final flattened evaluation benchmark
-- `[data/benchmark/final_children_eval_benchmark.summary.json](/tmp/cohere-tiny-aya-for-kids/data/benchmark/final_children_eval_benchmark.summary.json)`: benchmark summary and category counts
-- `[scripts/export_supabase_conversations.py](/tmp/cohere-tiny-aya-for-kids/scripts/export_supabase_conversations.py)`: exports one JSON per conversation from Supabase
-- `[scripts/extract_benchmark_candidates_cohere.py](/tmp/cohere-tiny-aya-for-kids/scripts/extract_benchmark_candidates_cohere.py)`: uses Cohere to extract benchmark-worthy child requests from redacted conversations
-- `[scripts/build_final_benchmark_from_cohere.py](/tmp/cohere-tiny-aya-for-kids/scripts/build_final_benchmark_from_cohere.py)`: normalizes and flattens extracted candidates into the final eval dataset
-- `[docs/conversation_export_and_cohere.md](/tmp/cohere-tiny-aya-for-kids/docs/conversation_export_and_cohere.md)`: extraction pipeline documentation
-- `[docs/final_benchmark_builder.md](/tmp/cohere-tiny-aya-for-kids/docs/final_benchmark_builder.md)`: final benchmark builder documentation
-- `[docs/translation_guide.md](/tmp/cohere-tiny-aya-for-kids/docs/translation_guide.md)`: guidance for multilingual adaptation
-- `stt_tts/`: STT & TTS setup for Mac — see [stt_tts/README.md](stt_tts/README.md)
+Setup and testing instructions are in [docs/ios_team_testing.md](docs/ios_team_testing.md).
+
+## Benchmark Assets
+
+- [data/benchmark/final_children_eval_benchmark.jsonl](data/benchmark/final_children_eval_benchmark.jsonl): final flattened evaluation benchmark
+- [data/benchmark/final_children_eval_benchmark.summary.json](data/benchmark/final_children_eval_benchmark.summary.json): benchmark summary and category counts
+- [scripts/export_supabase_conversations.py](scripts/export_supabase_conversations.py): exports one JSON per conversation from Supabase
+- [scripts/extract_benchmark_candidates_cohere.py](scripts/extract_benchmark_candidates_cohere.py): uses Cohere to extract benchmark-worthy child requests from redacted conversations
+- [scripts/build_final_benchmark_from_cohere.py](scripts/build_final_benchmark_from_cohere.py): normalizes and flattens extracted candidates into the final eval dataset
+
+Pipeline docs:
+
+- [docs/conversation_export_and_cohere.md](docs/conversation_export_and_cohere.md)
+- [docs/final_benchmark_builder.md](docs/final_benchmark_builder.md)
+- [docs/translation_guide.md](docs/translation_guide.md)
+- [stt_tts/README.md](stt_tts/README.md)
+- [docs/framework_decision_on_device_inference.md](docs/framework_decision_on_device_inference.md)
+- [docs/ios_mvp_status.md](docs/ios_mvp_status.md)
 
 ## Final Benchmark Snapshot
 
@@ -61,17 +77,6 @@ Normalized categories:
 - `privacy_boundaries`
 - `safety_redirection`
 - `civic_or_political`
-
-Each benchmark row includes:
-
-- stable `benchmark_id`
-- deterministic split
-- normalized category and tags
-- prompt context window
-- child request
-- reference response
-- rubric with must-pass conditions
-- metadata carrying extraction notes
 
 ## Recommended Usage
 
@@ -94,11 +99,10 @@ The benchmark was derived from anonymized Octo conversation records. The export 
 
 The final benchmark in this repo is the shareable artifact. Raw conversation exports were intentionally left out of the repository.
 
-## Next Steps
+## Next Useful Work
 
-Likely follow-on work for the team:
-
-1. Translate the benchmark into target languages such as Turkish, Spanish, Swahili, Yoruba, and Telugu.
-2. Run TinyAya and baseline small models on the `test` split.
-3. Add automated scoring or LLM-judge scripts.
-4. Curate failure buckets for fine-tuning and safety improvement.
+1. Clean up the remaining inherited file names from the copied iOS shell.
+2. Reduce iOS dependency weight and make the Kokoro package fix durable.
+3. Add repeatable latency and memory measurement for device test runs.
+4. Translate the benchmark into the target project languages.
+5. Add an automated eval runner for candidate tiny models.

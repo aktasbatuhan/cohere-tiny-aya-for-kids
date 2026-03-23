@@ -675,6 +675,7 @@ enum TinyAyaLlamaError: Error {
 }
 
 actor TinyAyaLlamaContext {
+    private let batchCapacity = 512
     private var model: OpaquePointer
     private var context: OpaquePointer
     private var vocab: OpaquePointer
@@ -692,7 +693,7 @@ actor TinyAyaLlamaContext {
         self.vocab = llama_model_get_vocab(model)
         self.tokens = []
         self.pendingInvalidBytes = []
-        self.batch = llama_batch_init(512, 0, 1)
+        self.batch = llama_batch_init(Int32(batchCapacity), 0, 1)
 
         let params = llama_sampler_chain_default_params()
         guard let chain = llama_sampler_chain_init(params) else {
@@ -803,13 +804,20 @@ actor TinyAyaLlamaContext {
         }
 
         tokens = Array(promptTokens.prefix(Int(written)))
+        if tokens.count >= Int(maxContext) {
+            tokens = Array(tokens.suffix(Int(maxContext) - 1))
+        }
         currentPosition = 0
         isDone = false
 
-        try decode(tokens: tokens, isPrompt: true)
+        try decodePromptTokens(tokens)
     }
 
     private func decode(tokens newTokens: [llama_token], isPrompt: Bool) throws {
+        guard !newTokens.isEmpty else { return }
+        guard newTokens.count <= batchCapacity else {
+            throw TinyAyaLlamaError.couldNotInitializeContext
+        }
         llama_batch_clear(&batch)
 
         for (index, token) in newTokens.enumerated() {
@@ -826,6 +834,18 @@ actor TinyAyaLlamaContext {
         currentPosition += Int32(newTokens.count)
         if !isPrompt {
             tokens.append(contentsOf: newTokens)
+        }
+    }
+
+    private func decodePromptTokens(_ promptTokens: [llama_token]) throws {
+        guard !promptTokens.isEmpty else { return }
+
+        var offset = 0
+        while offset < promptTokens.count {
+            let nextOffset = min(offset + batchCapacity, promptTokens.count)
+            let chunk = Array(promptTokens[offset..<nextOffset])
+            try decode(tokens: chunk, isPrompt: true)
+            offset = nextOffset
         }
     }
 

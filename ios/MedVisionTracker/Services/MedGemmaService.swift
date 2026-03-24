@@ -94,7 +94,6 @@ final class MedGemmaService {
 
     init() {
         setupMemoryWarningObserver()
-        seedConversation()
         updateMemoryUsage()
     }
 
@@ -155,7 +154,6 @@ final class MedGemmaService {
         #endif
         generatedText = ""
         chatMessages.removeAll()
-        seedConversation()
         stopSpeaking()
     }
 
@@ -262,16 +260,6 @@ final class MedGemmaService {
         memoryUsageMB = Self.currentAppMemoryMB()
     }
 
-    private func seedConversation() {
-        if chatMessages.isEmpty {
-            chatMessages = [
-                ChatMessage(
-                    role: .assistant,
-                    content: "Hi, I'm Aya. I can chat, explain things simply, and talk back once my on-device voice is ready."
-                )
-            ]
-        }
-    }
 
     private func setupMemoryWarningObserver() {
         memoryWarningObserver = NotificationCenter.default.addObserver(
@@ -462,10 +450,10 @@ final class MedGemmaService {
         voiceStatus = "Aya is speaking..."
         isSpeaking = true
 
-        let language: KokoroSwift.Language = selectedVoiceKey.first == "a" ? .enUS : .enGB
         #if canImport(llama)
         releaseLlamaContextForTTS()
         #endif
+        let language: KokoroSwift.Language = selectedVoiceKey.first == "a" ? .enUS : .enGB
         let result = try kokoroEngine.generateAudio(voice: voice, language: language, text: text)
         try playAudio(result.0)
     }
@@ -627,10 +615,9 @@ final class MedGemmaService {
     }
 
     private func formattedPrompt(appending adHocUserPrompt: String? = nil) -> String {
-        let relevantMessages = chatMessages.filter { !($0.role == .assistant && $0.content.contains("Whisper and Kokoro")) }
         var prompt = "<BOS_TOKEN><|START_OF_TURN_TOKEN|><|SYSTEM_TOKEN|>\(systemPrompt)<|END_OF_TURN_TOKEN|>"
 
-        for message in relevantMessages {
+        for message in chatMessages {
             switch message.role {
             case .user:
                 prompt += "<|START_OF_TURN_TOKEN|><|USER_TOKEN|>\(message.content)<|END_OF_TURN_TOKEN|>"

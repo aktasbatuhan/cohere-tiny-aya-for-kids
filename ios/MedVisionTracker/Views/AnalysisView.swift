@@ -17,6 +17,10 @@ struct AnalysisView: View {
 
                 ScrollView {
                     LazyVStack(spacing: 12) {
+                        if appState.medGemmaService.chatMessages.isEmpty {
+                            EmptyConversationCard()
+                        }
+
                         ForEach(appState.medGemmaService.chatMessages) { message in
                             ChatBubble(message: message)
                         }
@@ -196,5 +200,21 @@ private struct ChatBubble: View {
             message.role == .assistant ? Color.orange.opacity(0.10) : Color.blue.opacity(0.10),
             in: RoundedRectangle(cornerRadius: 16)
         )
+    }
+}
+
+private struct EmptyConversationCard: View {
+    var body: some View {
+        VStack(spacing: 10) {
+            Text("Aya is ready")
+                .font(.headline)
+            Text("Start talking or type a message when Aya is loaded.")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(24)
+        .background(Color.orange.opacity(0.08), in: RoundedRectangle(cornerRadius: 18))
     }
 }

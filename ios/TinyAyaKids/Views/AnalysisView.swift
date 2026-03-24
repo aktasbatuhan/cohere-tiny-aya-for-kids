@@ -17,11 +17,11 @@ struct AnalysisView: View {
 
                 ScrollView {
                     LazyVStack(spacing: 12) {
-                        if appState.medGemmaService.chatMessages.isEmpty {
+                        if appState.tinyAyaService.chatMessages.isEmpty {
                             EmptyConversationCard()
                         }
 
-                        ForEach(appState.medGemmaService.chatMessages) { message in
+                        ForEach(appState.tinyAyaService.chatMessages) { message in
                             ChatBubble(message: message)
                         }
                     }
@@ -48,7 +48,7 @@ struct AnalysisView: View {
                 }
             }
             .task {
-                await appState.medGemmaService.requestVoicePermissionsIfNeeded()
+                await appState.tinyAyaService.requestVoicePermissionsIfNeeded()
             }
         }
     }
@@ -61,7 +61,7 @@ struct AnalysisView: View {
                         .fill(Color.orange.opacity(0.18))
                         .frame(width: 56, height: 56)
 
-                    Image(systemName: appState.medGemmaService.isListening ? "waveform.circle.fill" : "face.smiling.fill")
+                    Image(systemName: appState.tinyAyaService.isListening ? "waveform.circle.fill" : "face.smiling.fill")
                         .font(.system(size: 28))
                         .foregroundStyle(Color.orange)
                 }
@@ -72,28 +72,28 @@ struct AnalysisView: View {
                     Text("Offline voice companion")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
-                    Text(appState.medGemmaService.loadingStatus)
+                    Text(appState.tinyAyaService.loadingStatus)
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    Text(appState.medGemmaService.voiceStatus)
+                    Text(appState.tinyAyaService.voiceStatus)
                         .font(.caption)
-                        .foregroundStyle(appState.medGemmaService.isListening ? .red : .secondary)
+                        .foregroundStyle(appState.tinyAyaService.isListening ? .red : .secondary)
                 }
 
                 Spacer()
 
-                Button(appState.medGemmaService.isModelLoaded ? "Ready" : "Load Aya") {
-                    Task { await appState.medGemmaService.loadModel() }
+                Button(appState.tinyAyaService.isModelLoaded ? "Ready" : "Load Aya") {
+                    Task { await appState.tinyAyaService.loadModel() }
                 }
                 .buttonStyle(.borderedProminent)
-                .disabled(appState.medGemmaService.isLoading || appState.medGemmaService.isModelLoaded)
+                .disabled(appState.tinyAyaService.isLoading || appState.tinyAyaService.isModelLoaded)
             }
 
-            if appState.medGemmaService.isLoading {
-                ProgressView(value: appState.medGemmaService.loadingProgress)
+            if appState.tinyAyaService.isLoading {
+                ProgressView(value: appState.tinyAyaService.loadingProgress)
             }
 
-            if let error = appState.medGemmaService.errorMessage {
+            if let error = appState.tinyAyaService.errorMessage {
                 Text(error)
                     .font(.caption)
                     .foregroundStyle(.red)
@@ -102,23 +102,23 @@ struct AnalysisView: View {
 
             VStack(spacing: 10) {
                 Button {
-                    Task { await appState.medGemmaService.toggleVoiceInput() }
+                    Task { await appState.tinyAyaService.toggleVoiceInput() }
                 } label: {
                     HStack(spacing: 10) {
-                        Image(systemName: appState.medGemmaService.isListening ? "stop.circle.fill" : "mic.circle.fill")
+                        Image(systemName: appState.tinyAyaService.isListening ? "stop.circle.fill" : "mic.circle.fill")
                             .font(.system(size: 22, weight: .semibold))
-                        Text(appState.medGemmaService.isListening ? "Stop And Send" : "Talk To Aya")
+                        Text(appState.tinyAyaService.isListening ? "Stop And Send" : "Talk To Aya")
                             .fontWeight(.semibold)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 14)
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(appState.medGemmaService.isListening ? .red : .orange)
-                .disabled(!appState.medGemmaService.isModelLoaded || appState.medGemmaService.isAnalyzing)
+                .tint(appState.tinyAyaService.isListening ? .red : .orange)
+                .disabled(!appState.tinyAyaService.isModelLoaded || appState.tinyAyaService.isAnalyzing)
 
-                if !appState.medGemmaService.liveTranscript.isEmpty {
-                    Text(appState.medGemmaService.liveTranscript)
+                if !appState.tinyAyaService.liveTranscript.isEmpty {
+                    Text(appState.tinyAyaService.liveTranscript)
                         .font(.subheadline)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(12)
@@ -158,13 +158,13 @@ struct AnalysisView: View {
             Button("Send") {
                 let message = draft
                 draft = ""
-                Task { await appState.medGemmaService.sendMessage(message) }
+                Task { await appState.tinyAyaService.sendMessage(message) }
             }
             .buttonStyle(.borderedProminent)
             .disabled(
                 draft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
-                !appState.medGemmaService.isModelLoaded ||
-                appState.medGemmaService.isAnalyzing
+                !appState.tinyAyaService.isModelLoaded ||
+                appState.tinyAyaService.isAnalyzing
             )
         }
         .padding()
@@ -173,7 +173,7 @@ struct AnalysisView: View {
 }
 
 private struct ChatBubble: View {
-    let message: MedGemmaService.ChatMessage
+    let message: TinyAyaService.ChatMessage
 
     var body: some View {
         HStack {

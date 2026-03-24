@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1587366D2F1D6148002E4D31 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587366C2F1D6148002E4D31 /* DebugView.swift */; };
 		D10000100000000000000001 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10000110000000000000001 /* Accelerate.framework */; };
 		D10000100000000000000002 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10000110000000000000002 /* Metal.framework */; };
 		D10000100000000000000003 /* llama.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10000110000000000000003 /* llama.xcframework */; };
@@ -16,19 +15,10 @@
 		D10000100000000000000006 /* KokoroSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = D10000150000000000000001 /* KokoroSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		D10000100000000000000007 /* MLXUtilsLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = D10000150000000000000002 /* MLXUtilsLibrary */; };
 		D10000100000000000000008 /* SwiftWhisper in Frameworks */ = {isa = PBXBuildFile; productRef = D10000150000000000000003 /* SwiftWhisper */; };
-		B1000014001 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000014000 /* OnboardingView.swift */; };
-		B1000015001 /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000015000 /* InsightsView.swift */; };
-		B1000016001 /* EdgeAIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000016000 /* EdgeAIView.swift */; };
-		B1000001001 /* HealixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001000 /* HealixApp.swift */; };
+		B1000001001 /* TinyAyaKidsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001000 /* TinyAyaKidsApp.swift */; };
 		B1000002001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000002000 /* ContentView.swift */; };
 		B1000003001 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000003000 /* AnalysisView.swift */; };
-		B1000004001 /* AnalysisResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000004000 /* AnalysisResultsView.swift */; };
-		B1000005001 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000005000 /* HistoryView.swift */; };
-		B1000006001 /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000006000 /* HealthView.swift */; };
-		B1000007001 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000007000 /* SettingsView.swift */; };
-		B1000008001 /* MedicalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000008000 /* MedicalRecord.swift */; };
-		B1000009001 /* MedGemmaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000009000 /* MedGemmaService.swift */; };
-		B1000010001 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000010000 /* HealthKitManager.swift */; };
+		B1000009001 /* TinyAyaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000009000 /* TinyAyaService.swift */; };
 		B1000011001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1000011000 /* Assets.xcassets */; };
 		C1000001001 /* MLXVLM in Frameworks */ = {isa = PBXBuildFile; productRef = C1000001000 /* MLXVLM */; };
 		C1000002001 /* MLXLMCommon in Frameworks */ = {isa = PBXBuildFile; productRef = C1000002000 /* MLXLMCommon */; };
@@ -52,27 +42,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1587366C2F1D6148002E4D31 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DebugView.swift; path = Views/DebugView.swift; sourceTree = "<group>"; };
 		D10000110000000000000001 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		D10000110000000000000002 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		D10000110000000000000003 /* llama.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Frameworks/llama.xcframework; sourceTree = SOURCE_ROOT; };
 		B1000000000 /* TinyAyaKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyAyaKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B1000001000 /* HealixApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealixApp.swift; sourceTree = "<group>"; };
+		B1000001000 /* TinyAyaKidsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyAyaKidsApp.swift; sourceTree = "<group>"; };
 		B1000002000 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B1000003000 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
-		B1000004000 /* AnalysisResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisResultsView.swift; sourceTree = "<group>"; };
-		B1000005000 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
-		B1000006000 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
-		B1000007000 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		B1000008000 /* MedicalRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecord.swift; sourceTree = "<group>"; };
-		B1000009000 /* MedGemmaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedGemmaService.swift; sourceTree = "<group>"; };
-		B1000010000 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		B1000009000 /* TinyAyaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyAyaService.swift; sourceTree = "<group>"; };
 		B1000011000 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1000012000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1000013000 /* Healix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Healix.entitlements; sourceTree = "<group>"; };
-		B1000014000 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		B1000015000 /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
-		B1000016000 /* EdgeAIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeAIView.swift; sourceTree = "<group>"; };
+		B1000013000 /* TinyAyaKids.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TinyAyaKids.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,14 +85,12 @@
 		B1000031000 /* TinyAyaKids */ = {
 			isa = PBXGroup;
 			children = (
-				B1000001000 /* HealixApp.swift */,
+				B1000001000 /* TinyAyaKidsApp.swift */,
 				B1000033000 /* Views */,
-				B1000034000 /* Models */,
 				B1000035000 /* Services */,
 				B1000011000 /* Assets.xcassets */,
 				B1000012000 /* Info.plist */,
-				B1000013000 /* Healix.entitlements */,
-				1587366C2F1D6148002E4D31 /* DebugView.swift */,
+				B1000013000 /* TinyAyaKids.entitlements */,
 			);
 			name = TinyAyaKids;
 			sourceTree = SOURCE_ROOT;
@@ -129,31 +107,15 @@
 			isa = PBXGroup;
 			children = (
 				B1000002000 /* ContentView.swift */,
-				B1000014000 /* OnboardingView.swift */,
 				B1000003000 /* AnalysisView.swift */,
-				B1000004000 /* AnalysisResultsView.swift */,
-				B1000005000 /* HistoryView.swift */,
-				B1000015000 /* InsightsView.swift */,
-				B1000006000 /* HealthView.swift */,
-				B1000007000 /* SettingsView.swift */,
-				B1000016000 /* EdgeAIView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		B1000034000 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				B1000008000 /* MedicalRecord.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		B1000035000 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				B1000009000 /* MedGemmaService.swift */,
-				B1000010000 /* HealthKitManager.swift */,
+				B1000009000 /* TinyAyaService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -250,10 +212,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1000001001 /* HealixApp.swift in Sources */,
+				B1000001001 /* TinyAyaKidsApp.swift in Sources */,
 				B1000002001 /* ContentView.swift in Sources */,
 				B1000003001 /* AnalysisView.swift in Sources */,
-				B1000009001 /* MedGemmaService.swift in Sources */,
+				B1000009001 /* TinyAyaService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,7 +346,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Healix.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TinyAyaKids.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YZZV5G432Y;
@@ -416,7 +378,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Healix.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TinyAyaKids.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YZZV5G432Y;
@@ -467,28 +429,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C1000000000 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ml-explore/mlx-swift-lm.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		C1000005000 /* XCRemoteSwiftPackageReference "mlx-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ml-explore/mlx-swift";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.30.0;
-			};
-		};
-		C1000006000 /* XCRemoteSwiftPackageReference "swift-transformers" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/huggingface/swift-transformers";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.0;
 			};
 		};
 		D10000140000000000000001 /* XCRemoteSwiftPackageReference "kokoro-ios" */ = {
@@ -520,12 +466,10 @@
 /* Begin XCSwiftPackageProductDependency section */
 		C1000001000 /* MLXVLM */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C1000000000 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
 			productName = MLXVLM;
 		};
 		C1000002000 /* MLXLMCommon */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C1000000000 /* XCRemoteSwiftPackageReference "mlx-swift-lm" */;
 			productName = MLXLMCommon;
 		};
 		C1000003000 /* MLX */ = {
@@ -535,7 +479,6 @@
 		};
 		C1000004000 /* Tokenizers */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C1000006000 /* XCRemoteSwiftPackageReference "swift-transformers" */;
 			productName = Tokenizers;
 		};
 		D10000150000000000000001 /* KokoroSwift */ = {

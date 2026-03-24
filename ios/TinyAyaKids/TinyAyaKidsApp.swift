@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct HealixApp: App {
+struct TinyAyaKidsApp: App {
     @State private var appState = AppState()
 
     var body: some Scene {
@@ -15,5 +15,5 @@ struct HealixApp: App {
 @MainActor
 @Observable
 final class AppState {
-    var medGemmaService = MedGemmaService()
+    var tinyAyaService = TinyAyaService()
 }

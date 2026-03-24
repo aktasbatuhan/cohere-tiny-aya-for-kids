@@ -13,7 +13,7 @@ import llama
 
 @MainActor
 @Observable
-final class MedGemmaService {
+final class TinyAyaService {
     struct ChatMessage: Identifiable, Equatable {
         enum Role: String {
             case assistant

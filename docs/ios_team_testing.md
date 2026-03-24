@@ -16,7 +16,7 @@ The visible assistant name in the app is `Aya`.
 
 Open the Xcode project at:
 
-- [ios/MedVisionTracker/MedVisionTracker.xcodeproj](/Users/batuhanaktas/Development/personal/cohere-tiny-aya-for-kids/ios/MedVisionTracker/MedVisionTracker.xcodeproj)
+- `ios/TinyAyaKids/TinyAyaKids.xcodeproj`
 
 ## Requirements
 
@@ -54,7 +54,7 @@ Equivalent command line build:
 
 ```bash
 xcodebuild \
-  -project ios/MedVisionTracker/MedVisionTracker.xcodeproj \
+  -project ios/TinyAyaKids/TinyAyaKids.xcodeproj \
   -scheme TinyAyaKids \
   -destination 'generic/platform=iOS' \
   -derivedDataPath /tmp/tinyaya-ios-dd \
@@ -73,10 +73,8 @@ xcodebuild \
 
 ## Known Limitations
 
-- The app shell was repurposed from an older project, so some internal file names still need cleanup.
 - First-run asset downloads are slow.
 - Memory pressure still needs proper measurement across multiple device types.
-- Some older placeholder screens still exist on disk even though the current app uses the simplified voice-first screen.
 - The Kokoro package path should be rechecked on a completely fresh machine to ensure package resolution stays stable.
 
 ## What To Report After Testing

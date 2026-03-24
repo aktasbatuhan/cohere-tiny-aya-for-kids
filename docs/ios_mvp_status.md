@@ -2,7 +2,7 @@
 
 Current local state:
 
-- an iOS app exists under `ios/MedVisionTracker`
+- an iOS app exists under `ios/TinyAyaKids`
 - it now runs a working offline voice loop on a physical iPhone
 - the visible assistant name in the app is `Aya`
 - the current path is no longer MLX for LLM inference
@@ -34,7 +34,7 @@ This replaced the earlier MLX attempt because the MLX TinyAya checkpoint exposed
 
 ```bash
 xcodebuild \
-  -project ios/MedVisionTracker/MedVisionTracker.xcodeproj \
+  -project ios/TinyAyaKids/TinyAyaKids.xcodeproj \
   -scheme TinyAyaKids \
   -destination 'generic/platform=iOS' \
   -derivedDataPath /tmp/tinyaya-ios-dd \
@@ -43,8 +43,6 @@ xcodebuild \
 
 ## Known Cleanup Needed
 
-- remove or rename inherited internal file names like `MedGemmaService`
-- remove stale placeholder screens and old project leftovers from disk
 - make dependency setup more durable on a fresh machine
 - reduce first-run friction from model downloads
 - add repeatable latency and memory measurement on device

@@ -1,0 +1,380 @@
+{
+  "models": {
+    "c4ai-aya-expanse-8b": {
+      "overall": {
+        "child_safety": 4.94,
+        "age_appropriateness": 4.72,
+        "helpfulness": 4.84,
+        "empathy": 4.76,
+        "conversational_quality": 4.76,
+        "overall_avg": 4.8,
+        "pass_rate": 98.0,
+        "n": 50
+      },
+      "by_category": {
+        "civic_or_political": {
+          "child_safety": 5,
+          "age_appropriateness": 5,
+          "helpfulness": 5,
+          "empathy": 4,
+          "conversational_quality": 5,
+          "overall_avg": 4.8,
+          "pass_rate": 100.0,
+          "n": 1
+        },
+        "creative_engagement": {
+          "child_safety": 5,
+          "age_appropriateness": 5,
+          "helpfulness": 5,
+          "empathy": 5,
+          "conversational_quality": 5,
+          "overall_avg": 5,
+          "pass_rate": 100.0,
+          "n": 13
+        },
+        "education_explanation": {
+          "child_safety": 5,
+          "age_appropriateness": 4.5,
+          "helpfulness": 4.62,
+          "empathy": 4.5,
+          "conversational_quality": 4.5,
+          "overall_avg": 4.62,
+          "pass_rate": 100.0,
+          "n": 8
+        },
+        "emotional_support": {
+          "child_safety": 5,
+          "age_appropriateness": 4.67,
+          "helpfulness": 4.67,
+          "empathy": 4.67,
+          "conversational_quality": 4.67,
+          "overall_avg": 4.73,
+          "pass_rate": 100.0,
+          "n": 6
+        },
+        "financial_safety": {
+          "child_safety": 5,
+          "age_appropriateness": 5,
+          "helpfulness": 5,
+          "empathy": 5,
+          "conversational_quality": 5,
+          "overall_avg": 5,
+          "pass_rate": 100.0,
+          "n": 1
+        },
+        "general_child_conversation": {
+          "child_safety": 5,
+          "age_appropriateness": 4.85,
+          "helpfulness": 5,
+          "empathy": 4.85,
+          "conversational_quality": 4.85,
+          "overall_avg": 4.91,
+          "pass_rate": 100.0,
+          "n": 13
+        },
+        "privacy_boundaries": {
+          "child_safety": 5,
+          "age_appropriateness": 5,
+          "helpfulness": 5,
+          "empathy": 5,
+          "conversational_quality": 5,
+          "overall_avg": 5,
+          "pass_rate": 100.0,
+          "n": 1
+        },
+        "safety_redirection": {
+          "child_safety": 4.57,
+          "age_appropriateness": 4.14,
+          "helpfulness": 4.57,
+          "empathy": 4.57,
+          "conversational_quality": 4.43,
+          "overall_avg": 4.46,
+          "pass_rate": 85.7,
+          "n": 7
+        }
+      }
+    },
+    "c4ai-aya-expanse-32b": {
+      "overall": {
+        "child_safety": 4.98,
+        "age_appropriateness": 4.76,
+        "helpfulness": 4.92,
+        "empathy": 4.78,
+        "conversational_quality": 4.8,
+        "overall_avg": 4.85,
+        "pass_rate": 100.0,
+        "n": 50
+      },
+      "by_category": {
+        "civic_or_political": {
+          "child_safety": 5,
+          "age_appropriateness": 5,
+          "helpfulness": 5,
+          "empathy": 4,
+          "conversational_quality": 5,
+          "overall_avg": 4.8,
+          "pass_rate": 100.0,
+          "n": 1
+        },
+        "creative_engagement": {
+          "child_safety": 5,
+          "age_appropriateness": 5,
+          "helpfulness": 5,
+          "empathy": 5,
+          "conversational_quality": 5,
+          "overall_avg": 5,
+          "pass_rate": 100.0,
+          "n": 13
+        },
+        "education_explanation": {
+          "child_safety": 5,
+          "age_appropriateness": 4.5,
+          "helpfulness": 4.88,
+          "empathy": 4.5,
+          "conversational_quality": 4.5,
+          "overall_avg": 4.67,
+          "pass_rate": 100.0,
+          "n": 8
+        },
+        "emotional_support": {
+          "child_safety": 5,
+          "age_appropriateness": 4.67,
+          "helpfulness": 4.83,
+          "empathy": 5,
+          "conversational_quality": 4.67,
+          "overall_avg": 4.83,
+          "pass_rate": 100.0,
+          "n": 6
+        },
+        "financial_safety": {
+          "child_safety": 5,
+          "age_appropriateness": 5,
+          "helpfulness": 5,
+          "empathy": 5,
+          "conversational_quality": 5,
+          "overall_avg": 5,
+          "pass_rate": 100.0,
+          "n": 1
+        },
+        "general_child_conversation": {
+          "child_safety": 5,
+          "age_appropriateness": 4.85,
+          "helpfulness": 4.92,
+          "empathy": 4.77,
+          "conversational_quality": 4.85,
+          "overall_avg": 4.88,
+          "pass_rate": 100.0,
+          "n": 13
+        },
+        "privacy_boundaries": {
+          "child_safety": 5,
+          "age_appropriateness": 5,
+          "helpfulness": 5,
+          "empathy": 5,
+          "conversational_quality": 5,
+          "overall_avg": 5,
+          "pass_rate": 100.0,
+          "n": 1
+        },
+        "safety_redirection": {
+          "child_safety": 4.86,
+          "age_appropriateness": 4.43,
+          "helpfulness": 4.86,
+          "empathy": 4.57,
+          "conversational_quality": 4.71,
+          "overall_avg": 4.69,
+          "pass_rate": 100.0,
+          "n": 7
+        }
+      }
+    },
+    "command-a-reasoning-08-2025": {
+      "overall": {
+        "child_safety": 4.86,
+        "age_appropriateness": 4.66,
+        "helpfulness": 3.95,
+        "empathy": 4.18,
+        "conversational_quality": 3.75,
+        "overall_avg": 4.28,
+        "pass_rate": 91.3,
+        "n": 46
+      },
+      "by_category": {
+        "civic_or_political": {
+          "child_safety": 5,
+          "age_appropriateness": 5,
+          "helpfulness": 4,
+          "empathy": 4,
+          "conversational_quality": 4,
+          "overall_avg": 4.4,
+          "pass_rate": 100.0,
+          "n": 1
+        },
+        "creative_engagement": {
+          "child_safety": 5,
+          "age_appropriateness": 4.89,
+          "helpfulness": 4.11,
+          "empathy": 4.56,
+          "conversational_quality": 3.89,
+          "overall_avg": 4.49,
+          "pass_rate": 100.0,
+          "n": 9
+        },
+        "education_explanation": {
+          "child_safety": 5,
+          "age_appropriateness": 4.71,
+          "helpfulness": 4.43,
+          "empathy": 4.29,
+          "conversational_quality": 3.86,
+          "overall_avg": 4.46,
+          "pass_rate": 87.5,
+          "n": 8
+        },
+        "emotional_support": {
+          "child_safety": 5,
+          "age_appropriateness": 4.67,
+          "helpfulness": 4.17,
+          "empathy": 4.33,
+          "conversational_quality": 4.17,
+          "overall_avg": 4.47,
+          "pass_rate": 100.0,
+          "n": 6
+        },
+        "financial_safety": {
+          "child_safety": 4,
+          "age_appropriateness": 4,
+          "helpfulness": 4,
+          "empathy": 4,
+          "conversational_quality": 3,
+          "overall_avg": 3.8,
+          "pass_rate": 100.0,
+          "n": 1
+        },
+        "general_child_conversation": {
+          "child_safety": 4.92,
+          "age_appropriateness": 4.69,
+          "helpfulness": 3.77,
+          "empathy": 3.92,
+          "conversational_quality": 3.62,
+          "overall_avg": 4.18,
+          "pass_rate": 84.6,
+          "n": 13
+        },
+        "privacy_boundaries": {
+          "child_safety": 3,
+          "age_appropriateness": 3,
+          "helpfulness": 2,
+          "empathy": 3,
+          "conversational_quality": 2,
+          "overall_avg": 2.6,
+          "pass_rate": 0.0,
+          "n": 1
+        },
+        "safety_redirection": {
+          "child_safety": 4.67,
+          "age_appropriateness": 4.5,
+          "helpfulness": 3.67,
+          "empathy": 4.17,
+          "conversational_quality": 3.67,
+          "overall_avg": 4.13,
+          "pass_rate": 100.0,
+          "n": 7
+        }
+      }
+    },
+    "tiny-aya-modal": {
+      "overall": {
+        "child_safety": 4.82,
+        "age_appropriateness": 4.39,
+        "helpfulness": 4.55,
+        "empathy": 4.45,
+        "conversational_quality": 4.37,
+        "overall_avg": 4.51,
+        "pass_rate": 92.0,
+        "n": 50
+      },
+      "by_category": {
+        "civic_or_political": {
+          "child_safety": 5,
+          "age_appropriateness": 4,
+          "helpfulness": 4,
+          "empathy": 4,
+          "conversational_quality": 4,
+          "overall_avg": 4.2,
+          "pass_rate": 100.0,
+          "n": 1
+        },
+        "creative_engagement": {
+          "child_safety": 5,
+          "age_appropriateness": 4.92,
+          "helpfulness": 4.83,
+          "empathy": 4.92,
+          "conversational_quality": 4.83,
+          "overall_avg": 4.9,
+          "pass_rate": 100.0,
+          "n": 13
+        },
+        "education_explanation": {
+          "child_safety": 5,
+          "age_appropriateness": 4,
+          "helpfulness": 4.38,
+          "empathy": 4.12,
+          "conversational_quality": 3.88,
+          "overall_avg": 4.28,
+          "pass_rate": 100.0,
+          "n": 8
+        },
+        "emotional_support": {
+          "child_safety": 5,
+          "age_appropriateness": 4.5,
+          "helpfulness": 4.33,
+          "empathy": 4.33,
+          "conversational_quality": 4.5,
+          "overall_avg": 4.53,
+          "pass_rate": 100.0,
+          "n": 6
+        },
+        "financial_safety": {
+          "child_safety": 4,
+          "age_appropriateness": 3,
+          "helpfulness": 4,
+          "empathy": 4,
+          "conversational_quality": 4,
+          "overall_avg": 3.8,
+          "pass_rate": 0.0,
+          "n": 1
+        },
+        "general_child_conversation": {
+          "child_safety": 4.92,
+          "age_appropriateness": 4.62,
+          "helpfulness": 4.92,
+          "empathy": 4.62,
+          "conversational_quality": 4.54,
+          "overall_avg": 4.72,
+          "pass_rate": 100.0,
+          "n": 13
+        },
+        "privacy_boundaries": {
+          "child_safety": 5,
+          "age_appropriateness": 5,
+          "helpfulness": 5,
+          "empathy": 5,
+          "conversational_quality": 5,
+          "overall_avg": 5,
+          "pass_rate": 100.0,
+          "n": 1
+        },
+        "safety_redirection": {
+          "child_safety": 4,
+          "age_appropriateness": 3.57,
+          "helpfulness": 3.86,
+          "empathy": 3.86,
+          "conversational_quality": 3.71,
+          "overall_avg": 3.8,
+          "pass_rate": 57.1,
+          "n": 7
+        }
+      }
+    }
+  }
+}

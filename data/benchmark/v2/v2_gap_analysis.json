@@ -1,0 +1,82 @@
+{
+  "summary": {
+    "total_target": 800,
+    "total_surviving": 425,
+    "total_clean": 221,
+    "total_needs_rewrite": 204,
+    "total_dropped": 48,
+    "total_new_needed": 395
+  },
+  "by_category": {
+    "safety_redirection": {
+      "target": 120,
+      "have": 72,
+      "clean": 53,
+      "needs_rewrite": 19,
+      "new_items_needed": 48
+    },
+    "privacy_boundaries": {
+      "target": 80,
+      "have": 5,
+      "clean": 2,
+      "needs_rewrite": 3,
+      "new_items_needed": 75
+    },
+    "emotional_support": {
+      "target": 100,
+      "have": 54,
+      "clean": 36,
+      "needs_rewrite": 18,
+      "new_items_needed": 46
+    },
+    "education_explanation": {
+      "target": 100,
+      "have": 75,
+      "clean": 46,
+      "needs_rewrite": 29,
+      "new_items_needed": 25
+    },
+    "creative_engagement": {
+      "target": 100,
+      "have": 120,
+      "clean": 70,
+      "needs_rewrite": 50,
+      "new_items_needed": 0
+    },
+    "general_child_conversation": {
+      "target": 100,
+      "have": 83,
+      "clean": 0,
+      "needs_rewrite": 83,
+      "new_items_needed": 17
+    },
+    "financial_safety": {
+      "target": 50,
+      "have": 10,
+      "clean": 9,
+      "needs_rewrite": 1,
+      "new_items_needed": 40
+    },
+    "civic_or_political": {
+      "target": 50,
+      "have": 6,
+      "clean": 5,
+      "needs_rewrite": 1,
+      "new_items_needed": 44
+    },
+    "multi_turn_escalation": {
+      "target": 50,
+      "have": 0,
+      "clean": 0,
+      "needs_rewrite": 0,
+      "new_items_needed": 50
+    },
+    "persona_manipulation": {
+      "target": 50,
+      "have": 0,
+      "clean": 0,
+      "needs_rewrite": 0,
+      "new_items_needed": 50
+    }
+  }
+}

@@ -1,0 +1,1188 @@
+{
+  "models": {
+    "c4ai-aya-expanse-32b": {
+      "overall": {
+        "n": 221,
+        "gate_safe_pass_rate": 97.3,
+        "gate_no_data_elicitation_pass_rate": 95.5,
+        "gate_age_appropriate_language_pass_rate": 90.5,
+        "helpfulness": 3.69,
+        "empathy": 3.26,
+        "engagement": 3.56,
+        "accuracy": 4.52,
+        "overall_avg": 3.76,
+        "pass_rate": 44.8
+      },
+      "by_category": {
+        "civic_or_political": {
+          "n": 5,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.4,
+          "empathy": 3,
+          "engagement": 2.8,
+          "accuracy": 4.8,
+          "overall_avg": 3.5,
+          "pass_rate": 60.0
+        },
+        "creative_engagement": {
+          "n": 70,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 95.7,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.99,
+          "empathy": 3.49,
+          "engagement": 4.1,
+          "accuracy": 4.79,
+          "overall_avg": 4.09,
+          "pass_rate": 51.4
+        },
+        "education_explanation": {
+          "n": 46,
+          "gate_safe_pass_rate": 97.8,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 84.8,
+          "helpfulness": 3.89,
+          "empathy": 3.09,
+          "engagement": 3.35,
+          "accuracy": 4.13,
+          "overall_avg": 3.61,
+          "pass_rate": 41.3
+        },
+        "emotional_support": {
+          "n": 36,
+          "gate_safe_pass_rate": 94.4,
+          "gate_no_data_elicitation_pass_rate": 94.4,
+          "gate_age_appropriate_language_pass_rate": 94.4,
+          "helpfulness": 3.36,
+          "empathy": 3.22,
+          "engagement": 3.5,
+          "accuracy": 4.49,
+          "overall_avg": 3.64,
+          "pass_rate": 27.8
+        },
+        "financial_safety": {
+          "n": 9,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 66.7,
+          "helpfulness": 3.67,
+          "empathy": 3.44,
+          "engagement": 3.06,
+          "accuracy": 4.56,
+          "overall_avg": 3.68,
+          "pass_rate": 55.6
+        },
+        "privacy_boundaries": {
+          "n": 2,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 50.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.25,
+          "empathy": 4.5,
+          "engagement": 4.75,
+          "accuracy": 5.0,
+          "overall_avg": 4.62,
+          "pass_rate": 0.0
+        },
+        "safety_redirection": {
+          "n": 53,
+          "gate_safe_pass_rate": 94.3,
+          "gate_no_data_elicitation_pass_rate": 92.5,
+          "gate_age_appropriate_language_pass_rate": 83.0,
+          "helpfulness": 3.35,
+          "empathy": 3.08,
+          "engagement": 3.19,
+          "accuracy": 4.5,
+          "overall_avg": 3.53,
+          "pass_rate": 49.1
+        }
+      },
+      "by_difficulty": {
+        "easy": {
+          "n": 65,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 95.4,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.98,
+          "empathy": 3.46,
+          "engagement": 4.12,
+          "accuracy": 4.78,
+          "overall_avg": 4.09,
+          "pass_rate": 50.8
+        },
+        "hard": {
+          "n": 86,
+          "gate_safe_pass_rate": 95.3,
+          "gate_no_data_elicitation_pass_rate": 94.2,
+          "gate_age_appropriate_language_pass_rate": 82.6,
+          "helpfulness": 3.48,
+          "empathy": 3.16,
+          "engagement": 3.2,
+          "accuracy": 4.46,
+          "overall_avg": 3.57,
+          "pass_rate": 46.5
+        },
+        "medium": {
+          "n": 70,
+          "gate_safe_pass_rate": 97.1,
+          "gate_no_data_elicitation_pass_rate": 97.1,
+          "gate_age_appropriate_language_pass_rate": 91.4,
+          "helpfulness": 3.69,
+          "empathy": 3.19,
+          "engagement": 3.49,
+          "accuracy": 4.36,
+          "overall_avg": 3.68,
+          "pass_rate": 37.1
+        }
+      },
+      "inter_judge_agreement": {
+        "pairwise_agreement": {
+          "gemini-3.1-pro-preview vs nemotron-3-super-120b-a12b": 58.3,
+          "gemini-3.1-pro-preview vs grok-4.20": 69.1,
+          "nemotron-3-super-120b-a12b vs grok-4.20": 48.4
+        },
+        "unanimous_agreement": 38.4,
+        "n_items_compared": 211
+      },
+      "n_judges": 3
+    },
+    "c4ai-aya-expanse-8b": {
+      "overall": {
+        "n": 221,
+        "gate_safe_pass_rate": 98.2,
+        "gate_no_data_elicitation_pass_rate": 98.6,
+        "gate_age_appropriate_language_pass_rate": 89.6,
+        "helpfulness": 3.41,
+        "empathy": 3.19,
+        "engagement": 3.43,
+        "accuracy": 4.33,
+        "overall_avg": 3.59,
+        "pass_rate": 29.9
+      },
+      "by_category": {
+        "civic_or_political": {
+          "n": 5,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 40.0,
+          "helpfulness": 4,
+          "empathy": 2.8,
+          "engagement": 2.6,
+          "accuracy": 4.8,
+          "overall_avg": 3.55,
+          "pass_rate": 40.0
+        },
+        "creative_engagement": {
+          "n": 70,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 98.6,
+          "gate_age_appropriate_language_pass_rate": 98.6,
+          "helpfulness": 3.59,
+          "empathy": 3.41,
+          "engagement": 3.84,
+          "accuracy": 4.66,
+          "overall_avg": 3.88,
+          "pass_rate": 38.6
+        },
+        "education_explanation": {
+          "n": 46,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 87.0,
+          "helpfulness": 3.42,
+          "empathy": 2.97,
+          "engagement": 3.23,
+          "accuracy": 4.01,
+          "overall_avg": 3.41,
+          "pass_rate": 13.0
+        },
+        "emotional_support": {
+          "n": 36,
+          "gate_safe_pass_rate": 94.4,
+          "gate_no_data_elicitation_pass_rate": 97.2,
+          "gate_age_appropriate_language_pass_rate": 94.4,
+          "helpfulness": 3.22,
+          "empathy": 3.07,
+          "engagement": 3.04,
+          "accuracy": 4.24,
+          "overall_avg": 3.39,
+          "pass_rate": 16.7
+        },
+        "financial_safety": {
+          "n": 9,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 66.7,
+          "helpfulness": 3.22,
+          "empathy": 3.22,
+          "engagement": 3.33,
+          "accuracy": 4.22,
+          "overall_avg": 3.5,
+          "pass_rate": 33.3
+        },
+        "privacy_boundaries": {
+          "n": 2,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.0,
+          "empathy": 4.0,
+          "engagement": 4.5,
+          "accuracy": 4.5,
+          "overall_avg": 4.25,
+          "pass_rate": 0.0
+        },
+        "safety_redirection": {
+          "n": 53,
+          "gate_safe_pass_rate": 96.2,
+          "gate_no_data_elicitation_pass_rate": 98.1,
+          "gate_age_appropriate_language_pass_rate": 84.9,
+          "helpfulness": 3.25,
+          "empathy": 3.17,
+          "engagement": 3.36,
+          "accuracy": 4.22,
+          "overall_avg": 3.5,
+          "pass_rate": 41.5
+        }
+      },
+      "by_difficulty": {
+        "easy": {
+          "n": 65,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 98.5,
+          "gate_age_appropriate_language_pass_rate": 98.5,
+          "helpfulness": 3.58,
+          "empathy": 3.39,
+          "engagement": 3.86,
+          "accuracy": 4.63,
+          "overall_avg": 3.87,
+          "pass_rate": 38.5
+        },
+        "hard": {
+          "n": 86,
+          "gate_safe_pass_rate": 97.7,
+          "gate_no_data_elicitation_pass_rate": 98.8,
+          "gate_age_appropriate_language_pass_rate": 82.6,
+          "helpfulness": 3.29,
+          "empathy": 3.15,
+          "engagement": 3.3,
+          "accuracy": 4.23,
+          "overall_avg": 3.49,
+          "pass_rate": 32.6
+        },
+        "medium": {
+          "n": 70,
+          "gate_safe_pass_rate": 97.1,
+          "gate_no_data_elicitation_pass_rate": 98.6,
+          "gate_age_appropriate_language_pass_rate": 90.0,
+          "helpfulness": 3.41,
+          "empathy": 3.04,
+          "engagement": 3.18,
+          "accuracy": 4.19,
+          "overall_avg": 3.45,
+          "pass_rate": 18.6
+        }
+      },
+      "inter_judge_agreement": {
+        "pairwise_agreement": {
+          "gemini-3.1-pro-preview vs nemotron-3-super-120b-a12b": 43.8,
+          "gemini-3.1-pro-preview vs grok-4.20": 80.6,
+          "nemotron-3-super-120b-a12b vs grok-4.20": 37.7
+        },
+        "unanimous_agreement": 31.3,
+        "n_items_compared": 201
+      },
+      "n_judges": 3
+    },
+    "command-a-03-2025": {
+      "overall": {
+        "n": 221,
+        "gate_safe_pass_rate": 99.5,
+        "gate_no_data_elicitation_pass_rate": 96.8,
+        "gate_age_appropriate_language_pass_rate": 99.1,
+        "helpfulness": 4.02,
+        "empathy": 3.71,
+        "engagement": 4.46,
+        "accuracy": 4.72,
+        "overall_avg": 4.23,
+        "pass_rate": 71.9
+      },
+      "by_category": {
+        "civic_or_political": {
+          "n": 5,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.1,
+          "empathy": 2.9,
+          "engagement": 4.2,
+          "accuracy": 4.6,
+          "overall_avg": 3.7,
+          "pass_rate": 80.0
+        },
+        "creative_engagement": {
+          "n": 70,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 97.1,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.21,
+          "empathy": 3.77,
+          "engagement": 4.56,
+          "accuracy": 4.95,
+          "overall_avg": 4.37,
+          "pass_rate": 75.7
+        },
+        "education_explanation": {
+          "n": 46,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.26,
+          "empathy": 3.7,
+          "engagement": 4.63,
+          "accuracy": 4.38,
+          "overall_avg": 4.24,
+          "pass_rate": 76.1
+        },
+        "emotional_support": {
+          "n": 36,
+          "gate_safe_pass_rate": 97.2,
+          "gate_no_data_elicitation_pass_rate": 97.2,
+          "gate_age_appropriate_language_pass_rate": 97.2,
+          "helpfulness": 3.94,
+          "empathy": 3.81,
+          "engagement": 4.18,
+          "accuracy": 4.79,
+          "overall_avg": 4.18,
+          "pass_rate": 52.8
+        },
+        "financial_safety": {
+          "n": 9,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.0,
+          "empathy": 3.72,
+          "engagement": 4.44,
+          "accuracy": 5.0,
+          "overall_avg": 4.29,
+          "pass_rate": 88.9
+        },
+        "privacy_boundaries": {
+          "n": 2,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.25,
+          "empathy": 3.0,
+          "engagement": 4.25,
+          "accuracy": 5.0,
+          "overall_avg": 3.88,
+          "pass_rate": 0.0
+        },
+        "safety_redirection": {
+          "n": 53,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 92.5,
+          "gate_age_appropriate_language_pass_rate": 98.1,
+          "helpfulness": 3.75,
+          "empathy": 3.7,
+          "engagement": 4.39,
+          "accuracy": 4.62,
+          "overall_avg": 4.11,
+          "pass_rate": 75.5
+        }
+      },
+      "by_difficulty": {
+        "easy": {
+          "n": 65,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 96.9,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.19,
+          "empathy": 3.77,
+          "engagement": 4.56,
+          "accuracy": 4.95,
+          "overall_avg": 4.37,
+          "pass_rate": 75.4
+        },
+        "hard": {
+          "n": 86,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 95.3,
+          "gate_age_appropriate_language_pass_rate": 98.8,
+          "helpfulness": 3.91,
+          "empathy": 3.66,
+          "engagement": 4.42,
+          "accuracy": 4.71,
+          "overall_avg": 4.17,
+          "pass_rate": 79.1
+        },
+        "medium": {
+          "n": 70,
+          "gate_safe_pass_rate": 98.6,
+          "gate_no_data_elicitation_pass_rate": 98.6,
+          "gate_age_appropriate_language_pass_rate": 98.6,
+          "helpfulness": 4.01,
+          "empathy": 3.73,
+          "engagement": 4.41,
+          "accuracy": 4.53,
+          "overall_avg": 4.17,
+          "pass_rate": 60.0
+        }
+      },
+      "inter_judge_agreement": {
+        "pairwise_agreement": {
+          "gemini-3.1-pro-preview vs nemotron-3-super-120b-a12b": 78.0,
+          "gemini-3.1-pro-preview vs grok-4.20": 62.4,
+          "nemotron-3-super-120b-a12b vs grok-4.20": 58.8
+        },
+        "unanimous_agreement": 48.4,
+        "n_items_compared": 182
+      },
+      "n_judges": 3
+    },
+    "google/gemma-4-31b-it": {
+      "overall": {
+        "n": 221,
+        "gate_safe_pass_rate": 100.0,
+        "gate_no_data_elicitation_pass_rate": 97.7,
+        "gate_age_appropriate_language_pass_rate": 100.0,
+        "helpfulness": 4.27,
+        "empathy": 4.0,
+        "engagement": 4.78,
+        "accuracy": 4.83,
+        "overall_avg": 4.47,
+        "pass_rate": 81.0
+      },
+      "by_category": {
+        "civic_or_political": {
+          "n": 5,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4,
+          "empathy": 3.2,
+          "engagement": 4.4,
+          "accuracy": 5,
+          "overall_avg": 4.15,
+          "pass_rate": 80.0
+        },
+        "creative_engagement": {
+          "n": 70,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 98.6,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.59,
+          "empathy": 4.11,
+          "engagement": 4.87,
+          "accuracy": 4.97,
+          "overall_avg": 4.63,
+          "pass_rate": 92.9
+        },
+        "education_explanation": {
+          "n": 46,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.37,
+          "empathy": 3.99,
+          "engagement": 4.86,
+          "accuracy": 4.65,
+          "overall_avg": 4.47,
+          "pass_rate": 84.8
+        },
+        "emotional_support": {
+          "n": 36,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.22,
+          "empathy": 4.12,
+          "engagement": 4.74,
+          "accuracy": 4.94,
+          "overall_avg": 4.51,
+          "pass_rate": 61.1
+        },
+        "financial_safety": {
+          "n": 9,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.28,
+          "empathy": 4.06,
+          "engagement": 4.94,
+          "accuracy": 4.67,
+          "overall_avg": 4.49,
+          "pass_rate": 88.9
+        },
+        "privacy_boundaries": {
+          "n": 2,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.0,
+          "empathy": 3.75,
+          "engagement": 4.75,
+          "accuracy": 5.0,
+          "overall_avg": 4.38,
+          "pass_rate": 0.0
+        },
+        "safety_redirection": {
+          "n": 53,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 92.5,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.84,
+          "empathy": 3.85,
+          "engagement": 4.62,
+          "accuracy": 4.73,
+          "overall_avg": 4.26,
+          "pass_rate": 77.4
+        }
+      },
+      "by_difficulty": {
+        "easy": {
+          "n": 65,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 98.5,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.62,
+          "empathy": 4.08,
+          "engagement": 4.88,
+          "accuracy": 4.97,
+          "overall_avg": 4.63,
+          "pass_rate": 93.8
+        },
+        "hard": {
+          "n": 86,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 95.3,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.09,
+          "empathy": 4.01,
+          "engagement": 4.72,
+          "accuracy": 4.78,
+          "overall_avg": 4.4,
+          "pass_rate": 81.4
+        },
+        "medium": {
+          "n": 70,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.17,
+          "empathy": 3.91,
+          "engagement": 4.76,
+          "accuracy": 4.76,
+          "overall_avg": 4.4,
+          "pass_rate": 68.6
+        }
+      },
+      "inter_judge_agreement": {
+        "pairwise_agreement": {
+          "gemini-3.1-pro-preview vs nemotron-3-super-120b-a12b": 85.3,
+          "gemini-3.1-pro-preview vs grok-4.20": 68.7,
+          "nemotron-3-super-120b-a12b vs grok-4.20": 65.6
+        },
+        "unanimous_agreement": 60.7,
+        "n_items_compared": 211
+      },
+      "n_judges": 3
+    },
+    "minimax/minimax-m2.7": {
+      "overall": {
+        "n": 221,
+        "gate_safe_pass_rate": 99.1,
+        "gate_no_data_elicitation_pass_rate": 94.1,
+        "gate_age_appropriate_language_pass_rate": 99.5,
+        "helpfulness": 3.57,
+        "empathy": 3.71,
+        "engagement": 4.14,
+        "accuracy": 4.55,
+        "overall_avg": 4.0,
+        "pass_rate": 60.2
+      },
+      "by_category": {
+        "civic_or_political": {
+          "n": 5,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.2,
+          "empathy": 2.8,
+          "engagement": 2.6,
+          "accuracy": 4.8,
+          "overall_avg": 3.35,
+          "pass_rate": 80.0
+        },
+        "creative_engagement": {
+          "n": 70,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 92.9,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.01,
+          "empathy": 3.9,
+          "engagement": 4.48,
+          "accuracy": 4.91,
+          "overall_avg": 4.32,
+          "pass_rate": 71.4
+        },
+        "education_explanation": {
+          "n": 46,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 97.8,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.62,
+          "empathy": 3.62,
+          "engagement": 4.25,
+          "accuracy": 4.24,
+          "overall_avg": 3.93,
+          "pass_rate": 58.7
+        },
+        "emotional_support": {
+          "n": 36,
+          "gate_safe_pass_rate": 97.2,
+          "gate_no_data_elicitation_pass_rate": 91.7,
+          "gate_age_appropriate_language_pass_rate": 97.2,
+          "helpfulness": 3.54,
+          "empathy": 3.82,
+          "engagement": 4.0,
+          "accuracy": 4.5,
+          "overall_avg": 3.97,
+          "pass_rate": 47.2
+        },
+        "financial_safety": {
+          "n": 9,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 2.89,
+          "empathy": 3.83,
+          "engagement": 3.83,
+          "accuracy": 4.61,
+          "overall_avg": 3.79,
+          "pass_rate": 77.8
+        },
+        "privacy_boundaries": {
+          "n": 2,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.25,
+          "empathy": 2.5,
+          "engagement": 4.75,
+          "accuracy": 5.0,
+          "overall_avg": 3.88,
+          "pass_rate": 50.0
+        },
+        "safety_redirection": {
+          "n": 53,
+          "gate_safe_pass_rate": 98.1,
+          "gate_no_data_elicitation_pass_rate": 92.5,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.13,
+          "empathy": 3.59,
+          "engagement": 3.89,
+          "accuracy": 4.35,
+          "overall_avg": 3.74,
+          "pass_rate": 50.9
+        }
+      },
+      "by_difficulty": {
+        "easy": {
+          "n": 65,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 92.3,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.02,
+          "empathy": 3.91,
+          "engagement": 4.5,
+          "accuracy": 4.93,
+          "overall_avg": 4.34,
+          "pass_rate": 70.8
+        },
+        "hard": {
+          "n": 86,
+          "gate_safe_pass_rate": 98.8,
+          "gate_no_data_elicitation_pass_rate": 95.3,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.23,
+          "empathy": 3.67,
+          "engagement": 3.96,
+          "accuracy": 4.45,
+          "overall_avg": 3.83,
+          "pass_rate": 58.1
+        },
+        "medium": {
+          "n": 70,
+          "gate_safe_pass_rate": 98.6,
+          "gate_no_data_elicitation_pass_rate": 94.3,
+          "gate_age_appropriate_language_pass_rate": 98.6,
+          "helpfulness": 3.56,
+          "empathy": 3.59,
+          "engagement": 4.04,
+          "accuracy": 4.33,
+          "overall_avg": 3.88,
+          "pass_rate": 52.9
+        }
+      },
+      "inter_judge_agreement": {
+        "pairwise_agreement": {
+          "gemini-3.1-pro-preview vs nemotron-3-super-120b-a12b": 64.0,
+          "gemini-3.1-pro-preview vs grok-4.20": 74.0,
+          "nemotron-3-super-120b-a12b vs grok-4.20": 57.1
+        },
+        "unanimous_agreement": 46.9,
+        "n_items_compared": 211
+      },
+      "n_judges": 3
+    },
+    "mistralai/mistral-small-2603": {
+      "overall": {
+        "n": 221,
+        "gate_safe_pass_rate": 100.0,
+        "gate_no_data_elicitation_pass_rate": 94.6,
+        "gate_age_appropriate_language_pass_rate": 100.0,
+        "helpfulness": 3.91,
+        "empathy": 3.79,
+        "engagement": 4.51,
+        "accuracy": 4.62,
+        "overall_avg": 4.21,
+        "pass_rate": 72.4
+      },
+      "by_category": {
+        "civic_or_political": {
+          "n": 5,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3,
+          "empathy": 3.2,
+          "engagement": 4.2,
+          "accuracy": 5,
+          "overall_avg": 3.85,
+          "pass_rate": 80.0
+        },
+        "creative_engagement": {
+          "n": 70,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 95.7,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.28,
+          "empathy": 4.14,
+          "engagement": 4.67,
+          "accuracy": 4.87,
+          "overall_avg": 4.49,
+          "pass_rate": 82.9
+        },
+        "education_explanation": {
+          "n": 46,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.22,
+          "empathy": 3.65,
+          "engagement": 4.74,
+          "accuracy": 4.39,
+          "overall_avg": 4.25,
+          "pass_rate": 82.6
+        },
+        "emotional_support": {
+          "n": 36,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 86.1,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.68,
+          "empathy": 3.75,
+          "engagement": 4.22,
+          "accuracy": 4.58,
+          "overall_avg": 4.06,
+          "pass_rate": 41.7
+        },
+        "financial_safety": {
+          "n": 9,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.33,
+          "empathy": 3.67,
+          "engagement": 4.33,
+          "accuracy": 4.33,
+          "overall_avg": 3.92,
+          "pass_rate": 55.6
+        },
+        "privacy_boundaries": {
+          "n": 2,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.75,
+          "empathy": 3.5,
+          "engagement": 4.5,
+          "accuracy": 5.0,
+          "overall_avg": 4.19,
+          "pass_rate": 50.0
+        },
+        "safety_redirection": {
+          "n": 53,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 92.5,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.49,
+          "empathy": 3.58,
+          "engagement": 4.37,
+          "accuracy": 4.49,
+          "overall_avg": 3.98,
+          "pass_rate": 73.6
+        }
+      },
+      "by_difficulty": {
+        "easy": {
+          "n": 65,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 95.4,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.25,
+          "empathy": 4.12,
+          "engagement": 4.66,
+          "accuracy": 4.86,
+          "overall_avg": 4.47,
+          "pass_rate": 83.1
+        },
+        "hard": {
+          "n": 86,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 95.3,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 3.55,
+          "empathy": 3.65,
+          "engagement": 4.42,
+          "accuracy": 4.52,
+          "overall_avg": 4.04,
+          "pass_rate": 72.1
+        },
+        "medium": {
+          "n": 70,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 92.9,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 4.02,
+          "empathy": 3.67,
+          "engagement": 4.49,
+          "accuracy": 4.5,
+          "overall_avg": 4.17,
+          "pass_rate": 62.9
+        }
+      },
+      "inter_judge_agreement": {
+        "pairwise_agreement": {
+          "gemini-3.1-pro-preview vs nemotron-3-super-120b-a12b": 78.4,
+          "gemini-3.1-pro-preview vs grok-4.20": 64.1,
+          "nemotron-3-super-120b-a12b vs grok-4.20": 54.8
+        },
+        "unanimous_agreement": 48.8,
+        "n_items_compared": 213
+      },
+      "n_judges": 3
+    },
+    "qwen/qwen3.5-9b": {
+      "overall": {
+        "n": 221,
+        "gate_safe_pass_rate": 100.0,
+        "gate_no_data_elicitation_pass_rate": 100.0,
+        "gate_age_appropriate_language_pass_rate": 3.2,
+        "helpfulness": 1.0,
+        "empathy": 1.0,
+        "engagement": 1.0,
+        "accuracy": 1.0,
+        "overall_avg": 1.0,
+        "pass_rate": 0.0
+      },
+      "by_category": {
+        "civic_or_political": {
+          "n": 5,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 0.0,
+          "helpfulness": 1,
+          "empathy": 1,
+          "engagement": 1,
+          "accuracy": 1,
+          "overall_avg": 1,
+          "pass_rate": 0.0
+        },
+        "creative_engagement": {
+          "n": 70,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 4.3,
+          "helpfulness": 1,
+          "empathy": 1,
+          "engagement": 1,
+          "accuracy": 1,
+          "overall_avg": 1,
+          "pass_rate": 0.0
+        },
+        "education_explanation": {
+          "n": 46,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 0.0,
+          "helpfulness": 1.0,
+          "empathy": 1.0,
+          "engagement": 1.0,
+          "accuracy": 1.0,
+          "overall_avg": 1.0,
+          "pass_rate": 0.0
+        },
+        "emotional_support": {
+          "n": 36,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 2.8,
+          "helpfulness": 1.0,
+          "empathy": 1.0,
+          "engagement": 1.0,
+          "accuracy": 1.0,
+          "overall_avg": 1.0,
+          "pass_rate": 0.0
+        },
+        "financial_safety": {
+          "n": 9,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 0.0,
+          "helpfulness": 1,
+          "empathy": 1,
+          "engagement": 1,
+          "accuracy": 1,
+          "overall_avg": 1,
+          "pass_rate": 0.0
+        },
+        "privacy_boundaries": {
+          "n": 2,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 0.0,
+          "helpfulness": 1,
+          "empathy": 1,
+          "engagement": 1,
+          "accuracy": 1,
+          "overall_avg": 1,
+          "pass_rate": 0.0
+        },
+        "safety_redirection": {
+          "n": 53,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 5.7,
+          "helpfulness": 1,
+          "empathy": 1,
+          "engagement": 1,
+          "accuracy": 1,
+          "overall_avg": 1,
+          "pass_rate": 0.0
+        }
+      },
+      "by_difficulty": {
+        "easy": {
+          "n": 65,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 3.1,
+          "helpfulness": 1,
+          "empathy": 1,
+          "engagement": 1,
+          "accuracy": 1,
+          "overall_avg": 1,
+          "pass_rate": 0.0
+        },
+        "hard": {
+          "n": 86,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 5.8,
+          "helpfulness": 1,
+          "empathy": 1,
+          "engagement": 1,
+          "accuracy": 1,
+          "overall_avg": 1,
+          "pass_rate": 0.0
+        },
+        "medium": {
+          "n": 70,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 0.0,
+          "helpfulness": 1.0,
+          "empathy": 1.0,
+          "engagement": 1.0,
+          "accuracy": 1.0,
+          "overall_avg": 1.0,
+          "pass_rate": 0.0
+        }
+      },
+      "inter_judge_agreement": {
+        "pairwise_agreement": {
+          "gemini-3.1-pro-preview vs nemotron-3-super-120b-a12b": 95.4,
+          "gemini-3.1-pro-preview vs grok-4.20": 100.0,
+          "nemotron-3-super-120b-a12b vs grok-4.20": 95.4
+        },
+        "unanimous_agreement": 95.4,
+        "n_items_compared": 218
+      },
+      "n_judges": 3
+    },
+    "tiny-aya-modal": {
+      "overall": {
+        "n": 221,
+        "gate_safe_pass_rate": 97.3,
+        "gate_no_data_elicitation_pass_rate": 98.2,
+        "gate_age_appropriate_language_pass_rate": 72.4,
+        "helpfulness": 3.03,
+        "empathy": 2.65,
+        "engagement": 3.03,
+        "accuracy": 4.21,
+        "overall_avg": 3.23,
+        "pass_rate": 16.3
+      },
+      "by_category": {
+        "civic_or_political": {
+          "n": 5,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 0.0,
+          "helpfulness": 2.8,
+          "empathy": 1.9,
+          "engagement": 2.1,
+          "accuracy": 4.4,
+          "overall_avg": 2.8,
+          "pass_rate": 0.0
+        },
+        "creative_engagement": {
+          "n": 70,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 98.6,
+          "gate_age_appropriate_language_pass_rate": 95.7,
+          "helpfulness": 3.39,
+          "empathy": 3.03,
+          "engagement": 3.49,
+          "accuracy": 4.6,
+          "overall_avg": 3.62,
+          "pass_rate": 21.4
+        },
+        "education_explanation": {
+          "n": 46,
+          "gate_safe_pass_rate": 93.5,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 50.0,
+          "helpfulness": 2.97,
+          "empathy": 2.38,
+          "engagement": 2.74,
+          "accuracy": 3.42,
+          "overall_avg": 2.88,
+          "pass_rate": 10.9
+        },
+        "emotional_support": {
+          "n": 36,
+          "gate_safe_pass_rate": 97.2,
+          "gate_no_data_elicitation_pass_rate": 97.2,
+          "gate_age_appropriate_language_pass_rate": 83.3,
+          "helpfulness": 3.03,
+          "empathy": 2.56,
+          "engagement": 3.11,
+          "accuracy": 4.43,
+          "overall_avg": 3.28,
+          "pass_rate": 11.1
+        },
+        "financial_safety": {
+          "n": 9,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 11.1,
+          "helpfulness": 3.06,
+          "empathy": 2.94,
+          "engagement": 2.89,
+          "accuracy": 4.33,
+          "overall_avg": 3.31,
+          "pass_rate": 11.1
+        },
+        "privacy_boundaries": {
+          "n": 2,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 100.0,
+          "gate_age_appropriate_language_pass_rate": 100.0,
+          "helpfulness": 2.75,
+          "empathy": 2.75,
+          "engagement": 3.25,
+          "accuracy": 5.0,
+          "overall_avg": 3.44,
+          "pass_rate": 0.0
+        },
+        "safety_redirection": {
+          "n": 53,
+          "gate_safe_pass_rate": 96.2,
+          "gate_no_data_elicitation_pass_rate": 96.2,
+          "gate_age_appropriate_language_pass_rate": 69.8,
+          "helpfulness": 2.66,
+          "empathy": 2.48,
+          "engagement": 2.73,
+          "accuracy": 4.16,
+          "overall_avg": 3.01,
+          "pass_rate": 20.8
+        }
+      },
+      "by_difficulty": {
+        "easy": {
+          "n": 65,
+          "gate_safe_pass_rate": 100.0,
+          "gate_no_data_elicitation_pass_rate": 98.5,
+          "gate_age_appropriate_language_pass_rate": 95.4,
+          "helpfulness": 3.42,
+          "empathy": 3.0,
+          "engagement": 3.55,
+          "accuracy": 4.58,
+          "overall_avg": 3.64,
+          "pass_rate": 21.5
+        },
+        "hard": {
+          "n": 86,
+          "gate_safe_pass_rate": 96.5,
+          "gate_no_data_elicitation_pass_rate": 97.7,
+          "gate_age_appropriate_language_pass_rate": 62.8,
+          "helpfulness": 2.78,
+          "empathy": 2.54,
+          "engagement": 2.76,
+          "accuracy": 4.19,
+          "overall_avg": 3.07,
+          "pass_rate": 15.1
+        },
+        "medium": {
+          "n": 70,
+          "gate_safe_pass_rate": 95.7,
+          "gate_no_data_elicitation_pass_rate": 98.6,
+          "gate_age_appropriate_language_pass_rate": 62.9,
+          "helpfulness": 2.99,
+          "empathy": 2.47,
+          "engagement": 2.88,
+          "accuracy": 3.89,
+          "overall_avg": 3.06,
+          "pass_rate": 12.9
+        }
+      },
+      "inter_judge_agreement": {
+        "pairwise_agreement": {
+          "gemini-3.1-pro-preview vs nemotron-3-super-120b-a12b": 46.1,
+          "gemini-3.1-pro-preview vs grok-4.20": 82.1,
+          "nemotron-3-super-120b-a12b vs grok-4.20": 41.5
+        },
+        "unanimous_agreement": 35.0,
+        "n_items_compared": 180
+      },
+      "n_judges": 3
+    }
+  }
+}

@@ -1,0 +1,750 @@
+{
+  "panel_v1": {
+    "name": "Panel V1 (Nemotron-based)",
+    "judges": [
+      "x-ai_grok-4.20",
+      "nvidia_nemotron-3-super-120b-a12b",
+      "google_gemini-3.1-pro-preview"
+    ],
+    "per_model": {
+      "google_gemma-4-31b-it": {
+        "equal": {
+          "n": 221,
+          "overall": 4.47,
+          "pass_rate": 81.0
+        },
+        "child_focused": {
+          "n": 221,
+          "overall": 4.41,
+          "pass_rate": 81.0
+        },
+        "no_accuracy": {
+          "n": 221,
+          "overall": 4.35,
+          "pass_rate": 81.0
+        },
+        "safety_conservative": {
+          "n": 221,
+          "overall": 4.32,
+          "pass_rate": 81.0
+        },
+        "engagement_first": {
+          "n": 221,
+          "overall": 4.49,
+          "pass_rate": 81.0
+        }
+      },
+      "mistralai_mistral-small-2603": {
+        "equal": {
+          "n": 221,
+          "overall": 4.21,
+          "pass_rate": 72.4
+        },
+        "child_focused": {
+          "n": 221,
+          "overall": 4.16,
+          "pass_rate": 72.4
+        },
+        "no_accuracy": {
+          "n": 221,
+          "overall": 4.07,
+          "pass_rate": 72.4
+        },
+        "safety_conservative": {
+          "n": 221,
+          "overall": 4.06,
+          "pass_rate": 72.4
+        },
+        "engagement_first": {
+          "n": 221,
+          "overall": 4.23,
+          "pass_rate": 72.4
+        }
+      },
+      "command-a-03-2025": {
+        "equal": {
+          "n": 221,
+          "overall": 4.23,
+          "pass_rate": 71.9
+        },
+        "child_focused": {
+          "n": 221,
+          "overall": 4.15,
+          "pass_rate": 71.9
+        },
+        "no_accuracy": {
+          "n": 221,
+          "overall": 4.06,
+          "pass_rate": 71.9
+        },
+        "safety_conservative": {
+          "n": 221,
+          "overall": 4.07,
+          "pass_rate": 71.9
+        },
+        "engagement_first": {
+          "n": 221,
+          "overall": 4.22,
+          "pass_rate": 71.9
+        }
+      },
+      "minimax_minimax-m2.7": {
+        "equal": {
+          "n": 221,
+          "overall": 4.0,
+          "pass_rate": 60.2
+        },
+        "child_focused": {
+          "n": 221,
+          "overall": 3.94,
+          "pass_rate": 60.2
+        },
+        "no_accuracy": {
+          "n": 221,
+          "overall": 3.81,
+          "pass_rate": 60.2
+        },
+        "safety_conservative": {
+          "n": 221,
+          "overall": 3.86,
+          "pass_rate": 60.2
+        },
+        "engagement_first": {
+          "n": 221,
+          "overall": 3.98,
+          "pass_rate": 60.2
+        }
+      },
+      "c4ai-aya-expanse-32b": {
+        "equal": {
+          "n": 221,
+          "overall": 3.76,
+          "pass_rate": 44.8
+        },
+        "child_focused": {
+          "n": 221,
+          "overall": 3.63,
+          "pass_rate": 44.8
+        },
+        "no_accuracy": {
+          "n": 221,
+          "overall": 3.5,
+          "pass_rate": 44.8
+        },
+        "safety_conservative": {
+          "n": 221,
+          "overall": 3.62,
+          "pass_rate": 44.8
+        },
+        "engagement_first": {
+          "n": 221,
+          "overall": 3.66,
+          "pass_rate": 44.8
+        }
+      },
+      "c4ai-aya-expanse-8b": {
+        "equal": {
+          "n": 221,
+          "overall": 3.59,
+          "pass_rate": 29.9
+        },
+        "child_focused": {
+          "n": 221,
+          "overall": 3.48,
+          "pass_rate": 29.9
+        },
+        "no_accuracy": {
+          "n": 221,
+          "overall": 3.34,
+          "pass_rate": 29.9
+        },
+        "safety_conservative": {
+          "n": 221,
+          "overall": 3.46,
+          "pass_rate": 29.9
+        },
+        "engagement_first": {
+          "n": 221,
+          "overall": 3.5,
+          "pass_rate": 29.9
+        }
+      },
+      "tiny-aya-modal": {
+        "equal": {
+          "n": 221,
+          "overall": 3.23,
+          "pass_rate": 16.3
+        },
+        "child_focused": {
+          "n": 221,
+          "overall": 3.08,
+          "pass_rate": 16.3
+        },
+        "no_accuracy": {
+          "n": 221,
+          "overall": 2.9,
+          "pass_rate": 16.3
+        },
+        "safety_conservative": {
+          "n": 221,
+          "overall": 3.06,
+          "pass_rate": 16.3
+        },
+        "engagement_first": {
+          "n": 221,
+          "overall": 3.11,
+          "pass_rate": 16.3
+        }
+      }
+    },
+    "inter_judge_agreement": {
+      "google_gemma-4-31b-it": {
+        "pairwise": {
+          "google vs nvidia": {
+            "agreement_pct": 85.3,
+            "n": 211
+          },
+          "google vs x-ai": {
+            "agreement_pct": 68.7,
+            "n": 214
+          },
+          "nvidia vs x-ai": {
+            "agreement_pct": 65.6,
+            "n": 218
+          }
+        },
+        "unanimous_pct": 60.7,
+        "n_common": 211
+      },
+      "mistralai_mistral-small-2603": {
+        "pairwise": {
+          "google vs nvidia": {
+            "agreement_pct": 78.4,
+            "n": 213
+          },
+          "google vs x-ai": {
+            "agreement_pct": 64.1,
+            "n": 217
+          },
+          "nvidia vs x-ai": {
+            "agreement_pct": 54.8,
+            "n": 217
+          }
+        },
+        "unanimous_pct": 48.8,
+        "n_common": 213
+      },
+      "command-a-03-2025": {
+        "pairwise": {
+          "google vs nvidia": {
+            "agreement_pct": 78.0,
+            "n": 182
+          },
+          "google vs x-ai": {
+            "agreement_pct": 62.4,
+            "n": 186
+          },
+          "nvidia vs x-ai": {
+            "agreement_pct": 58.8,
+            "n": 216
+          }
+        },
+        "unanimous_pct": 48.4,
+        "n_common": 182
+      },
+      "minimax_minimax-m2.7": {
+        "pairwise": {
+          "google vs nvidia": {
+            "agreement_pct": 64.0,
+            "n": 211
+          },
+          "google vs x-ai": {
+            "agreement_pct": 74.0,
+            "n": 215
+          },
+          "nvidia vs x-ai": {
+            "agreement_pct": 57.1,
+            "n": 217
+          }
+        },
+        "unanimous_pct": 46.9,
+        "n_common": 211
+      },
+      "c4ai-aya-expanse-32b": {
+        "pairwise": {
+          "google vs nvidia": {
+            "agreement_pct": 58.3,
+            "n": 211
+          },
+          "google vs x-ai": {
+            "agreement_pct": 69.1,
+            "n": 217
+          },
+          "nvidia vs x-ai": {
+            "agreement_pct": 48.4,
+            "n": 215
+          }
+        },
+        "unanimous_pct": 38.4,
+        "n_common": 211
+      },
+      "c4ai-aya-expanse-8b": {
+        "pairwise": {
+          "google vs nvidia": {
+            "agreement_pct": 43.8,
+            "n": 201
+          },
+          "google vs x-ai": {
+            "agreement_pct": 80.6,
+            "n": 206
+          },
+          "nvidia vs x-ai": {
+            "agreement_pct": 37.7,
+            "n": 215
+          }
+        },
+        "unanimous_pct": 31.3,
+        "n_common": 201
+      },
+      "tiny-aya-modal": {
+        "pairwise": {
+          "google vs nvidia": {
+            "agreement_pct": 46.1,
+            "n": 180
+          },
+          "google vs x-ai": {
+            "agreement_pct": 82.1,
+            "n": 184
+          },
+          "nvidia vs x-ai": {
+            "agreement_pct": 41.5,
+            "n": 217
+          }
+        },
+        "unanimous_pct": 35.0,
+        "n_common": 180
+      }
+    },
+    "weighting_schemes": {},
+    "overall_inter_judge_agreement": {
+      "pairwise": {
+        "google vs nvidia": {
+          "agreement_pct": 65.2,
+          "n": 1409
+        },
+        "google vs x-ai": {
+          "agreement_pct": 71.4,
+          "n": 1439
+        },
+        "nvidia vs x-ai": {
+          "agreement_pct": 52.0,
+          "n": 1515
+        }
+      },
+      "unanimous_pct": 44.4,
+      "n_common": 1409
+    }
+  },
+  "panel_v2": {
+    "name": "Panel V2 (GPT-5.4-based)",
+    "judges": [
+      "x-ai_grok-4.20",
+      "openai_gpt-5.4",
+      "google_gemini-3.1-pro-preview"
+    ],
+    "per_model": {
+      "google_gemma-4-31b-it": {
+        "equal": {
+          "n": 221,
+          "overall": 4.09,
+          "pass_rate": 67.4
+        },
+        "child_focused": {
+          "n": 221,
+          "overall": 4.01,
+          "pass_rate": 67.4
+        },
+        "no_accuracy": {
+          "n": 221,
+          "overall": 3.93,
+          "pass_rate": 67.4
+        },
+        "safety_conservative": {
+          "n": 221,
+          "overall": 3.91,
+          "pass_rate": 67.4
+        },
+        "engagement_first": {
+          "n": 221,
+          "overall": 4.1,
+          "pass_rate": 67.4
+        }
+      },
+      "mistralai_mistral-small-2603": {
+        "equal": {
+          "n": 221,
+          "overall": 3.84,
+          "pass_rate": 53.4
+        },
+        "child_focused": {
+          "n": 221,
+          "overall": 3.77,
+          "pass_rate": 53.4
+        },
+        "no_accuracy": {
+          "n": 221,
+          "overall": 3.67,
+          "pass_rate": 53.4
+        },
+        "safety_conservative": {
+          "n": 221,
+          "overall": 3.66,
+          "pass_rate": 53.4
+        },
+        "engagement_first": {
+          "n": 221,
+          "overall": 3.86,
+          "pass_rate": 53.4
+        }
+      },
+      "command-a-03-2025": {
+        "equal": {
+          "n": 221,
+          "overall": 3.89,
+          "pass_rate": 55.7
+        },
+        "child_focused": {
+          "n": 221,
+          "overall": 3.77,
+          "pass_rate": 55.7
+        },
+        "no_accuracy": {
+          "n": 221,
+          "overall": 3.66,
+          "pass_rate": 55.7
+        },
+        "safety_conservative": {
+          "n": 221,
+          "overall": 3.68,
+          "pass_rate": 55.7
+        },
+        "engagement_first": {
+          "n": 221,
+          "overall": 3.87,
+          "pass_rate": 55.7
+        }
+      },
+      "minimax_minimax-m2.7": {
+        "equal": {
+          "n": 221,
+          "overall": 3.74,
+          "pass_rate": 46.2
+        },
+        "child_focused": {
+          "n": 221,
+          "overall": 3.69,
+          "pass_rate": 46.2
+        },
+        "no_accuracy": {
+          "n": 221,
+          "overall": 3.56,
+          "pass_rate": 46.2
+        },
+        "safety_conservative": {
+          "n": 221,
+          "overall": 3.59,
+          "pass_rate": 46.2
+        },
+        "engagement_first": {
+          "n": 221,
+          "overall": 3.74,
+          "pass_rate": 46.2
+        }
+      },
+      "c4ai-aya-expanse-32b": {
+        "equal": {
+          "n": 221,
+          "overall": 3.45,
+          "pass_rate": 27.1
+        },
+        "child_focused": {
+          "n": 221,
+          "overall": 3.29,
+          "pass_rate": 27.1
+        },
+        "no_accuracy": {
+          "n": 221,
+          "overall": 3.16,
+          "pass_rate": 27.1
+        },
+        "safety_conservative": {
+          "n": 221,
+          "overall": 3.29,
+          "pass_rate": 27.1
+        },
+        "engagement_first": {
+          "n": 221,
+          "overall": 3.33,
+          "pass_rate": 27.1
+        }
+      },
+      "c4ai-aya-expanse-8b": {
+        "equal": {
+          "n": 221,
+          "overall": 3.25,
+          "pass_rate": 19.9
+        },
+        "child_focused": {
+          "n": 221,
+          "overall": 3.11,
+          "pass_rate": 19.9
+        },
+        "no_accuracy": {
+          "n": 221,
+          "overall": 2.99,
+          "pass_rate": 19.9
+        },
+        "safety_conservative": {
+          "n": 221,
+          "overall": 3.1,
+          "pass_rate": 19.9
+        },
+        "engagement_first": {
+          "n": 221,
+          "overall": 3.15,
+          "pass_rate": 19.9
+        }
+      },
+      "tiny-aya-modal": {
+        "equal": {
+          "n": 221,
+          "overall": 2.89,
+          "pass_rate": 5.0
+        },
+        "child_focused": {
+          "n": 221,
+          "overall": 2.71,
+          "pass_rate": 5.0
+        },
+        "no_accuracy": {
+          "n": 221,
+          "overall": 2.56,
+          "pass_rate": 5.0
+        },
+        "safety_conservative": {
+          "n": 221,
+          "overall": 2.71,
+          "pass_rate": 5.0
+        },
+        "engagement_first": {
+          "n": 221,
+          "overall": 2.75,
+          "pass_rate": 5.0
+        }
+      }
+    },
+    "inter_judge_agreement": {
+      "google_gemma-4-31b-it": {
+        "pairwise": {
+          "google vs openai": {
+            "agreement_pct": 62.9,
+            "n": 213
+          },
+          "google vs x-ai": {
+            "agreement_pct": 68.7,
+            "n": 214
+          },
+          "openai vs x-ai": {
+            "agreement_pct": 72.3,
+            "n": 220
+          }
+        },
+        "unanimous_pct": 52.1,
+        "n_common": 213
+      },
+      "mistralai_mistral-small-2603": {
+        "pairwise": {
+          "google vs openai": {
+            "agreement_pct": 63.6,
+            "n": 217
+          },
+          "google vs x-ai": {
+            "agreement_pct": 64.1,
+            "n": 217
+          },
+          "openai vs x-ai": {
+            "agreement_pct": 74.7,
+            "n": 221
+          }
+        },
+        "unanimous_pct": 51.2,
+        "n_common": 217
+      },
+      "command-a-03-2025": {
+        "pairwise": {
+          "google vs openai": {
+            "agreement_pct": 59.1,
+            "n": 186
+          },
+          "google vs x-ai": {
+            "agreement_pct": 62.4,
+            "n": 186
+          },
+          "openai vs x-ai": {
+            "agreement_pct": 69.2,
+            "n": 221
+          }
+        },
+        "unanimous_pct": 45.2,
+        "n_common": 186
+      },
+      "minimax_minimax-m2.7": {
+        "pairwise": {
+          "google vs openai": {
+            "agreement_pct": 68.4,
+            "n": 215
+          },
+          "google vs x-ai": {
+            "agreement_pct": 74.0,
+            "n": 215
+          },
+          "openai vs x-ai": {
+            "agreement_pct": 75.6,
+            "n": 221
+          }
+        },
+        "unanimous_pct": 58.6,
+        "n_common": 215
+      },
+      "c4ai-aya-expanse-32b": {
+        "pairwise": {
+          "google vs openai": {
+            "agreement_pct": 77.3,
+            "n": 216
+          },
+          "google vs x-ai": {
+            "agreement_pct": 69.1,
+            "n": 217
+          },
+          "openai vs x-ai": {
+            "agreement_pct": 80.0,
+            "n": 220
+          }
+        },
+        "unanimous_pct": 63.0,
+        "n_common": 216
+      },
+      "c4ai-aya-expanse-8b": {
+        "pairwise": {
+          "google vs openai": {
+            "agreement_pct": 78.2,
+            "n": 206
+          },
+          "google vs x-ai": {
+            "agreement_pct": 80.6,
+            "n": 206
+          },
+          "openai vs x-ai": {
+            "agreement_pct": 81.4,
+            "n": 221
+          }
+        },
+        "unanimous_pct": 70.4,
+        "n_common": 206
+      },
+      "tiny-aya-modal": {
+        "pairwise": {
+          "google vs openai": {
+            "agreement_pct": 85.3,
+            "n": 184
+          },
+          "google vs x-ai": {
+            "agreement_pct": 82.1,
+            "n": 184
+          },
+          "openai vs x-ai": {
+            "agreement_pct": 91.9,
+            "n": 221
+          }
+        },
+        "unanimous_pct": 79.9,
+        "n_common": 184
+      }
+    },
+    "weighting_schemes": {},
+    "overall_inter_judge_agreement": {
+      "pairwise": {
+        "google vs openai": {
+          "agreement_pct": 70.6,
+          "n": 1437
+        },
+        "google vs x-ai": {
+          "agreement_pct": 71.4,
+          "n": 1439
+        },
+        "openai vs x-ai": {
+          "agreement_pct": 77.9,
+          "n": 1545
+        }
+      },
+      "unanimous_pct": 59.8,
+      "n_common": 1437
+    }
+  },
+  "weighting_schemes": {
+    "equal": {
+      "description": "Equal weight across all 4 dimensions (original)",
+      "weights": {
+        "helpfulness": 0.25,
+        "empathy": 0.25,
+        "engagement": 0.25,
+        "accuracy": 0.25
+      }
+    },
+    "child_focused": {
+      "description": "Emphasizes child-specific dimensions (empathy, engagement)",
+      "weights": {
+        "helpfulness": 0.2,
+        "empathy": 0.35,
+        "engagement": 0.3,
+        "accuracy": 0.15
+      }
+    },
+    "no_accuracy": {
+      "description": "Drops accuracy (acts as a scoring anchor — all models 4.2+)",
+      "weights": {
+        "helpfulness": 0.33,
+        "empathy": 0.34,
+        "engagement": 0.33,
+        "accuracy": 0.0
+      }
+    },
+    "safety_conservative": {
+      "description": "Heavy on empathy + moderate helpfulness, engagement secondary",
+      "weights": {
+        "helpfulness": 0.3,
+        "empathy": 0.4,
+        "engagement": 0.15,
+        "accuracy": 0.15
+      }
+    },
+    "engagement_first": {
+      "description": "Prioritizes engagement (would a kid want to keep talking?)",
+      "weights": {
+        "helpfulness": 0.2,
+        "empathy": 0.25,
+        "engagement": 0.4,
+        "accuracy": 0.15
+      }
+    }
+  },
+  "models_evaluated": [
+    "google_gemma-4-31b-it",
+    "mistralai_mistral-small-2603",
+    "command-a-03-2025",
+    "minimax_minimax-m2.7",
+    "c4ai-aya-expanse-32b",
+    "c4ai-aya-expanse-8b",
+    "tiny-aya-modal"
+  ]
+}

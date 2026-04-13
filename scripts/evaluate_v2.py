@@ -43,7 +43,7 @@ OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 JUDGE_MODELS = [
     "x-ai/grok-4.20",
-    "nvidia/nemotron-3-super-120b-a12b",
+    "openai/gpt-5.4",
     "google/gemini-3.1-pro-preview",
 ]
 

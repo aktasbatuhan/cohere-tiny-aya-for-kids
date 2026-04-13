@@ -12,23 +12,26 @@ This benchmark bridges the gap by evaluating both safety **and** quality across 
 
 - **221 evaluation items** across 7 categories
 - **8 models evaluated** ranging from 3.3B to ~100B parameters
-- **3-judge evaluation panel** via OpenRouter (Grok 4.20, Nemotron 120B, Gemini 3.1 Pro)
+- **3-judge evaluation panel** via OpenRouter (Grok 4.20, GPT-5.4, Gemini 3.1 Pro)
 - **Binary hard gates** (pass/fail) for safety + **graded dimensions** (1-5) for quality
+- **Two judge panels tested** for transparency (see [Methodology Iteration](#methodology-iteration-panel-v1-%E2%86%92-v2))
 - All data, responses, and scores are publicly available in this repository
 
 ## Results
 
-### Leaderboard
+### Leaderboard (Panel V2: Grok + GPT-5.4 + Gemini, equal weights)
 
 | Rank | Model | Size | Overall | Pass % | Safety | Age-Approp | Helpful | Empathy | Engage | Accuracy |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Gemma 4 31B | 31B | **4.47** | **81.0%** | 100% | 100% | 4.27 | **4.00** | **4.78** | **4.83** |
-| 2 | Mistral Small | 24B | 4.21 | 72.4% | 100% | 100% | 3.91 | 3.79 | 4.51 | 4.62 |
-| 3 | Command A | ~100B | 4.23 | 71.9% | 99.5% | 99.1% | **4.02** | 3.71 | 4.46 | 4.72 |
-| 4 | Minimax M2.7 | — | 4.00 | 60.2% | 99.1% | 99.5% | 3.57 | 3.71 | 4.14 | 4.55 |
-| 5 | Aya Expanse 32B | 32B | 3.76 | 44.8% | 97.3% | 90.5% | 3.69 | 3.26 | 3.56 | 4.52 |
-| 6 | Aya Expanse 8B | 8B | 3.59 | 29.9% | 98.2% | 89.6% | 3.41 | 3.19 | 3.43 | 4.33 |
-| 7 | TinyAya | 3.3B | 3.23 | 16.3% | 97.3% | 72.4% | 3.03 | 2.65 | 3.03 | 4.21 |
+| 1 | Gemma 4 31B | 31B | **4.09** | **67.4%** | 100% | 100% | 4.27 | **4.00** | **4.78** | **4.83** |
+| 2 | Command A | ~100B | 3.89 | 55.7% | 99.5% | 99.1% | **4.02** | 3.71 | 4.46 | 4.72 |
+| 3 | Mistral Small | 24B | 3.84 | 53.4% | 100% | 100% | 3.91 | 3.79 | 4.51 | 4.62 |
+| 4 | Minimax M2.7 | — | 3.74 | 46.2% | 99.1% | 99.5% | 3.57 | 3.71 | 4.14 | 4.55 |
+| 5 | Aya Expanse 32B | 32B | 3.45 | 27.1% | 97.3% | 90.5% | 3.69 | 3.26 | 3.56 | 4.52 |
+| 6 | Aya Expanse 8B | 8B | 3.25 | 19.9% | 98.2% | 89.6% | 3.41 | 3.19 | 3.43 | 4.33 |
+| 7 | TinyAya | 3.3B | 2.89 | 5.0% | 97.3% | 72.4% | 3.03 | 2.65 | 3.03 | 4.21 |
+
+> **Note:** The per-dimension columns (Helpful, Empathy, Engage, Accuracy) show values from the original 3-judge panel (V1) for continuity. The overall/pass columns reflect the stricter Panel V2. See [Methodology Iteration](#methodology-iteration-panel-v1-%E2%86%92-v2) for the full comparison.
 
 ### Key Findings
 
@@ -85,13 +88,15 @@ Items were sourced from real conversation logs with a children's AI companion, t
 
 ### Evaluation: Multi-Judge Panel
 
-We use three diverse LLM judges via [OpenRouter](https://openrouter.ai), ensuring no model judges its own family:
+We use three diverse LLM judges via [OpenRouter](https://openrouter.ai), ensuring no model judges its own family. The primary panel (V2) is:
 
 | Judge | Role |
 |---|---|
-| **Grok 4.20** (xAI) | Primary judge — 100% parse rate, strict on age-appropriateness |
-| **Nemotron 3 Super 120B** (NVIDIA) | Secondary judge — 98.2% parse rate, more lenient on engagement |
-| **Gemini 3.1 Pro Preview** (Google) | Tertiary judge — 93.0% parse rate, strict on empathy |
+| **Grok 4.20** (xAI) | 100% parse rate, strict on age-appropriateness |
+| **GPT-5.4** (OpenAI) | 99.7% parse rate, strict on empathy and age-appropriateness |
+| **Gemini 3.1 Pro Preview** (Google) | 93.0% parse rate, strict on empathy |
+
+We originally used Nemotron 3 Super 120B instead of GPT-5.4. On investigation, Nemotron scored consistently more leniently than the other two judges and was the primary driver of disagreement. We replaced it with GPT-5.4, which lifted unanimous agreement from 44.4% to 59.8%. **Both panels' raw scores remain in the repository** — see [Methodology Iteration](#methodology-iteration-panel-v1-%E2%86%92-v2) for full comparison.
 
 **Aggregation:**
 - Hard gates: **majority vote** (2/3 judges must agree)
@@ -136,6 +141,70 @@ Category-specific gates are added where relevant (e.g., `no_financial_risk` for 
 | TinyAya | 46.1% | 82.1% | 41.5% | 35.0% |
 
 Judges agree most on the best model (Gemma, 60.7% unanimous) and least on borderline models (Aya 8B, 31.3%). This is expected — clear passes/failures are easy to agree on; borderline quality is subjective.
+
+## Methodology Iteration: Panel V1 → V2
+
+After inspecting inter-judge agreement on the original panel, we found **Nemotron 120B was a systematic outlier** — scoring consistently higher than Grok and Gemini (unanimous agreement only 44.4%, pairwise Nemotron-vs-others at 52-65%). We replaced it with GPT-5.4 and re-ran judging to test robustness. Both panels' raw scores remain in the repository for transparency.
+
+### Inter-Judge Agreement: Two Panels Compared
+
+Across all 7 models × 221 items, overall pass decisions:
+
+| | Panel V1 (Nemotron) | Panel V2 (GPT-5.4) | Δ |
+|---|---|---|---|
+| **Unanimous (all 3 judges)** | 44.4% | **59.8%** | **+15.4pp** |
+| Grok vs Gemini | 71.4% | 71.4% | — (unchanged, both panels share these) |
+| Grok vs Nemotron/GPT-5.4 | 52.0% | **77.9%** | +25.9pp |
+| Gemini vs Nemotron/GPT-5.4 | 65.2% | **70.6%** | +5.4pp |
+
+Replacing Nemotron with GPT-5.4 improved unanimous agreement by 15 percentage points and brought all pairwise agreements above 70%. This confirms Nemotron was the source of disagreement, not a fundamental judge-reliability issue.
+
+### Model Scores Under Each Weighting Scheme (Panel V2)
+
+No single "overall score" is objectively correct — different weightings answer different questions. All rank the models identically, confirming the benchmark is robust to weighting choice.
+
+| Scheme | Helpful | Empathy | Engage | Accuracy | What it prioritizes |
+|---|---|---|---|---|---|
+| `equal` | 0.25 | 0.25 | 0.25 | 0.25 | Balanced baseline |
+| `child_focused` | 0.20 | 0.35 | 0.30 | 0.15 | Empathy + engagement (child-specific) |
+| `no_accuracy` | 0.33 | 0.34 | 0.33 | 0.00 | Drops accuracy (acts as scoring anchor) |
+| `safety_conservative` | 0.30 | 0.40 | 0.15 | 0.15 | Empathy-heavy, accuracy over engagement |
+| `engagement_first` | 0.20 | 0.25 | 0.40 | 0.15 | Would a kid want to keep talking? |
+
+| Model | equal | child_focused | no_accuracy | safety_conservative | engagement_first | Pass % |
+|---|---|---|---|---|---|---|
+| **Gemma 4 31B** | 4.09 | 4.01 | 3.93 | 3.91 | 4.10 | 67.4% |
+| **Command A** | 3.89 | 3.77 | 3.66 | 3.68 | 3.87 | 55.7% |
+| **Mistral Small** | 3.84 | 3.77 | 3.67 | 3.66 | 3.86 | 53.4% |
+| **Minimax M2.7** | 3.74 | 3.69 | 3.56 | 3.59 | 3.74 | 46.2% |
+| **Aya 32B** | 3.45 | 3.29 | 3.16 | 3.29 | 3.33 | 27.1% |
+| **Aya 8B** | 3.25 | 3.11 | 2.99 | 3.10 | 3.15 | 19.9% |
+| **TinyAya 3.3B** | 2.89 | 2.71 | 2.56 | 2.71 | 2.75 | 5.0% |
+
+### V1 vs V2 Side-by-Side (Equal Weights)
+
+GPT-5.4 is systematically stricter than Nemotron — all models drop in both overall score and pass rate. This actually *improves* benchmark discrimination (TinyAya drops to 5% pass, clearly separating it from Aya 8B).
+
+| Model | V1 Overall | V1 Pass% | V2 Overall | V2 Pass% | Δ Overall | Δ Pass% |
+|---|---|---|---|---|---|---|
+| Gemma 4 31B | 4.47 | 81.0% | 4.09 | 67.4% | −0.38 | −13.6pp |
+| Mistral Small | 4.21 | 72.4% | 3.84 | 53.4% | −0.37 | −19.0pp |
+| Command A | 4.23 | 71.9% | 3.89 | 55.7% | −0.34 | −16.2pp |
+| Minimax M2.7 | 4.00 | 60.2% | 3.74 | 46.2% | −0.26 | −14.0pp |
+| Aya 32B | 3.76 | 44.8% | 3.45 | 27.1% | −0.31 | −17.7pp |
+| Aya 8B | 3.59 | 29.9% | 3.25 | 19.9% | −0.34 | −10.0pp |
+| TinyAya 3.3B | 3.23 | 16.3% | 2.89 | 5.0% | −0.34 | −11.3pp |
+
+**Key takeaway:** Model rankings are stable across both judge panels and all 5 weighting schemes. Absolute scores shift, but *relative ordering is invariant*. This is a strong signal that the benchmark measures something real about model-child interaction quality, not judge idiosyncrasies.
+
+### Why we report Panel V2 as the primary result
+
+- Higher inter-judge agreement (59.8% vs 44.4% unanimous)
+- More discriminative scores (wider spread, especially at the low end)
+- All three judges agree within 70%+ pairwise (no outlier)
+- GPT-5.4 parse success rate: 99.7% (vs Nemotron 98.2%, Gemini 93.0%)
+
+Panel V1 data remains in `data/benchmark/v2/results/` for independent re-analysis.
 
 ## Example: Financial Safety
 

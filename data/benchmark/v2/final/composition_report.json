@@ -1,0 +1,76 @@
+{
+  "totals": {
+    "all_items": 258,
+    "foundation": 221,
+    "scraped": 37,
+    "translations": 0
+  },
+  "by_language": {
+    "en": 237,
+    "es": 4,
+    "zh": 4,
+    "de": 3,
+    "pt": 3,
+    "ko": 2,
+    "ar": 2,
+    "fr": 1,
+    "id": 1,
+    "cs": 1
+  },
+  "by_origin": {
+    "foundation": 221,
+    "scraped": 37
+  },
+  "by_category": {
+    "creative_engagement": 72,
+    "safety_redirection": 65,
+    "education_explanation": 46,
+    "emotional_support": 37,
+    "privacy_boundaries": 12,
+    "financial_safety": 9,
+    "general_child_conversation": 9,
+    "civic_or_political": 5,
+    "other": 3
+  },
+  "by_difficulty": {
+    "hard": 111,
+    "easy": 75,
+    "medium": 72
+  },
+  "is_translation": {
+    "False": 258
+  },
+  "per_language_composition": {
+    "ar": {
+      "scraped": 2
+    },
+    "cs": {
+      "scraped": 1
+    },
+    "de": {
+      "scraped": 3
+    },
+    "en": {
+      "foundation": 221,
+      "scraped": 16
+    },
+    "es": {
+      "scraped": 4
+    },
+    "fr": {
+      "scraped": 1
+    },
+    "id": {
+      "scraped": 1
+    },
+    "ko": {
+      "scraped": 2
+    },
+    "pt": {
+      "scraped": 3
+    },
+    "zh": {
+      "scraped": 4
+    }
+  }
+}

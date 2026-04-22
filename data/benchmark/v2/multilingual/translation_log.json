@@ -1,0 +1,9 @@
+{
+  "totals": {
+    "done_tr": 40,
+    "done_es": 36,
+    "done_fr": 39
+  },
+  "done_at": 1776856391.304505,
+  "out_path": "data/benchmark/v2/multilingual/v2_multilingual.jsonl"
+}

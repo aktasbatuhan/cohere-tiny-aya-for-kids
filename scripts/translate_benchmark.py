@@ -51,7 +51,7 @@ SUPPORTED_LANGUAGES = {
     "vi": "Vietnamese",
 }
 
-TRANSLATE_MODEL = "command-a-08-2025"
+TRANSLATE_MODEL = "command-a-reasoning-08-2025"
 
 SYSTEM_PROMPT = """You are translating a children's AI evaluation benchmark from English into {language_name}.
 

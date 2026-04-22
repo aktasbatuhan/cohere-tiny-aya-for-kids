@@ -19,6 +19,8 @@
 		B1000002001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000002000 /* ContentView.swift */; };
 		B1000003001 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000003000 /* AnalysisView.swift */; };
 		B1000009001 /* TinyAyaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000009000 /* TinyAyaService.swift */; };
+		B1000014001 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000014000 /* OnboardingView.swift */; };
+		B1000015001 /* LocaleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000015000 /* LocaleService.swift */; };
 		B1000011001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1000011000 /* Assets.xcassets */; };
 		C1000001001 /* MLXVLM in Frameworks */ = {isa = PBXBuildFile; productRef = C1000001000 /* MLXVLM */; };
 		C1000002001 /* MLXLMCommon in Frameworks */ = {isa = PBXBuildFile; productRef = C1000002000 /* MLXLMCommon */; };
@@ -50,6 +52,8 @@
 		B1000002000 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B1000003000 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
 		B1000009000 /* TinyAyaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyAyaService.swift; sourceTree = "<group>"; };
+		B1000014000 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		B1000015000 /* LocaleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleService.swift; sourceTree = "<group>"; };
 		B1000011000 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1000012000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1000013000 /* TinyAyaKids.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TinyAyaKids.entitlements; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 			children = (
 				B1000002000 /* ContentView.swift */,
 				B1000003000 /* AnalysisView.swift */,
+				B1000014000 /* OnboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				B1000009000 /* TinyAyaService.swift */,
+				B1000015000 /* LocaleService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -183,7 +189,7 @@
 			mainGroup = B1000030000;
 			packageReferences = (
 				C1000005000 /* XCRemoteSwiftPackageReference "mlx-swift" */,
-				D10000140000000000000001 /* XCRemoteSwiftPackageReference "kokoro-ios" */,
+				D10000140000000000000001 /* XCLocalSwiftPackageReference "kokoro-ios-local" */,
 				D10000140000000000000002 /* XCRemoteSwiftPackageReference "MLXUtilsLibrary" */,
 				D10000140000000000000003 /* XCRemoteSwiftPackageReference "SwiftWhisper" */,
 			);
@@ -216,6 +222,8 @@
 				B1000002001 /* ContentView.swift in Sources */,
 				B1000003001 /* AnalysisView.swift in Sources */,
 				B1000009001 /* TinyAyaService.swift in Sources */,
+				B1000014001 /* OnboardingView.swift in Sources */,
+				B1000015001 /* LocaleService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,13 +445,9 @@
 				minimumVersion = 0.30.0;
 			};
 		};
-		D10000140000000000000001 /* XCRemoteSwiftPackageReference "kokoro-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mlalma/kokoro-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.10;
-			};
+		D10000140000000000000001 /* XCLocalSwiftPackageReference "kokoro-ios-local" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../kokoro-ios-local";
 		};
 		D10000140000000000000002 /* XCRemoteSwiftPackageReference "MLXUtilsLibrary" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -483,7 +487,7 @@
 		};
 		D10000150000000000000001 /* KokoroSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D10000140000000000000001 /* XCRemoteSwiftPackageReference "kokoro-ios" */;
+			package = D10000140000000000000001 /* XCLocalSwiftPackageReference "kokoro-ios-local" */;
 			productName = KokoroSwift;
 		};
 		D10000150000000000000002 /* MLXUtilsLibrary */ = {

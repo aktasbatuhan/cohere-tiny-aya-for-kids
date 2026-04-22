@@ -73,6 +73,9 @@ final class TinyAyaService {
     @ObservationIgnored private var kokoroEngine: KokoroTTS?
     @ObservationIgnored private var kokoroVoices: [String: MLXArray] = [:]
     @ObservationIgnored private var selectedVoiceKey = "af_heart.npy"
+    @ObservationIgnored private let systemSpeechSynthesizer = AVSpeechSynthesizer()
+    @ObservationIgnored private var systemSpeechDelegate: SystemSpeechDelegate?
+    @ObservationIgnored private let locale: LocaleService
 
     #if canImport(llama)
     private var llamaContext: TinyAyaLlamaContext?
@@ -80,19 +83,24 @@ final class TinyAyaService {
     #endif
 
     private let maxTokens = 192
-    private let systemPrompt = """
-    You are Aya, a calm, warm, child-safe AI companion for children ages 4 to 8.
-    Use simple language, short sentences, and a friendly tone.
-    Avoid harmful, sexual, graphic, hateful, or frightening content.
-    If the child asks for unsafe content, gently refuse and redirect to a safe alternative.
-    Encourage curiosity, kindness, creativity, and emotional reassurance.
-    """
+    private var systemPrompt: String {
+        let base = """
+        You are Aya, a calm, warm, child-safe AI companion for children ages 4 to 8.
+        Use simple language, short sentences, and a friendly tone.
+        Avoid harmful, sexual, graphic, hateful, or frightening content.
+        If the child asks for unsafe content, gently refuse and redirect to a safe alternative.
+        Encourage curiosity, kindness, creativity, and emotional reassurance.
+        """
+        let lang = locale.language.responseLanguageInstruction
+        return lang.isEmpty ? base : "\(base)\n\(lang)"
+    }
 
     private let whisperModelURL = URL(string: "https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-tiny.bin?download=true")!
     private let kokoroModelURL = URL(string: "https://github.com/mlalma/KokoroTestApp/raw/main/Resources/kokoro-v1_0.safetensors")!
     private let kokoroVoicesURL = URL(string: "https://github.com/mlalma/KokoroTestApp/raw/main/Resources/voices.npz")!
 
-    init() {
+    init(locale: LocaleService) {
+        self.locale = locale
         setupMemoryWarningObserver()
         updateMemoryUsage()
     }
@@ -165,6 +173,9 @@ final class TinyAyaService {
             return
         }
 
+        stopSpeaking()
+        releaseKokoroForLLM()
+
         errorMessage = nil
         isAnalyzing = true
         generatedText = ""
@@ -179,7 +190,12 @@ final class TinyAyaService {
             loadingStatus = "Last response: \(String(format: "%.1f", lastResponseLatencySeconds ?? 0))s"
             updateMemoryUsage()
             if autoSpeakResponses {
-                try await speakLatestAssistantReplyIfNeeded()
+                do {
+                    try await speakLatestAssistantReplyIfNeeded()
+                } catch {
+                    print("[TinyAya] TTS error: \(error)")
+                    voiceStatus = "Voice unavailable for this response."
+                }
             }
         } catch {
             if let index = chatMessages.indices.last {
@@ -251,6 +267,9 @@ final class TinyAyaService {
         if let activePlaybackURL {
             cleanupTemporaryFile(at: activePlaybackURL)
             self.activePlaybackURL = nil
+        }
+        if systemSpeechSynthesizer.isSpeaking {
+            systemSpeechSynthesizer.stopSpeaking(at: .immediate)
         }
         isSpeaking = false
         try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
@@ -435,6 +454,22 @@ final class TinyAyaService {
     }
 
     private func speak(_ text: String) async throws {
+        // Route by language: Kokoro for English (high quality), AVSpeechSynthesizer
+        // for everything else. Kokoro failures fall back to AVSpeechSynthesizer.
+        if locale.language.usesKokoroTTS {
+            do {
+                try await speakWithKokoro(text)
+                return
+            } catch {
+                print("[TinyAya] Kokoro TTS failed (\(error)); falling back to system TTS")
+                kokoroEngine = nil
+                kokoroVoices = [:]
+            }
+        }
+        try speakWithSystemSynthesizer(text)
+    }
+
+    private func speakWithKokoro(_ text: String) async throws {
         try await prepareKokoroIfNeeded()
         guard let kokoroEngine else {
             throw NSError(domain: "TinyAyaVoice", code: 27, userInfo: [NSLocalizedDescriptionKey: "Kokoro is unavailable"])
@@ -450,12 +485,46 @@ final class TinyAyaService {
         voiceStatus = "Aya is speaking..."
         isSpeaking = true
 
-        #if canImport(llama)
-        releaseLlamaContextForTTS()
-        #endif
         let language: KokoroSwift.Language = selectedVoiceKey.first == "a" ? .enUS : .enGB
         let result = try kokoroEngine.generateAudio(voice: voice, language: language, text: text)
         try playAudio(result.0)
+    }
+
+    private func speakWithSystemSynthesizer(_ text: String) throws {
+        let audioSession = AVAudioSession.sharedInstance()
+        try audioSession.setCategory(.playback, mode: .spokenAudio, options: [.duckOthers])
+        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+
+        voiceStatus = "Aya is speaking..."
+        isSpeaking = true
+
+        // Install delegate so we can reset state when speech finishes.
+        if systemSpeechDelegate == nil {
+            let delegate = SystemSpeechDelegate { [weak self] in
+                Task { @MainActor in
+                    guard let self else { return }
+                    self.isSpeaking = false
+                    if !self.isListening {
+                        self.voiceStatus = "Tap the microphone to talk to Aya."
+                    }
+                    try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+                }
+            }
+            systemSpeechDelegate = delegate
+            systemSpeechSynthesizer.delegate = delegate
+        }
+
+        let utterance = AVSpeechUtterance(string: text)
+        let voiceID = locale.language.speechVoiceIdentifier
+        if let voice = AVSpeechSynthesisVoice(language: voiceID) {
+            utterance.voice = voice
+        }
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate * 0.92  // slightly slower for kids
+        utterance.pitchMultiplier = 1.06
+        utterance.volume = 1.0
+
+        systemSpeechSynthesizer.stopSpeaking(at: .immediate)
+        systemSpeechSynthesizer.speak(utterance)
     }
 
     private func playAudio(_ audio: [Float]) throws {
@@ -569,11 +638,19 @@ final class TinyAyaService {
         return context
     }
 
-    private func releaseLlamaContextForTTS() {
+    private func releaseLlamaContextForTTS() async {
+        await llamaContext?.shutdown()
         llamaContext = nil
         updateMemoryUsage()
     }
+
     #endif
+
+    private func releaseKokoroForLLM() {
+        kokoroEngine = nil
+        kokoroVoices = [:]
+        updateMemoryUsage()
+    }
 
     private func ensureDownloadedFile(named name: String, from remoteURL: URL) async throws -> URL {
         let destination = documentsDirectory().appendingPathComponent(name)
@@ -649,6 +726,19 @@ final class TinyAyaService {
     }
 }
 
+private final class SystemSpeechDelegate: NSObject, AVSpeechSynthesizerDelegate {
+    private let onFinish: () -> Void
+    init(onFinish: @escaping () -> Void) {
+        self.onFinish = onFinish
+    }
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        onFinish()
+    }
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance) {
+        onFinish()
+    }
+}
+
 private extension FixedWidthInteger {
     var littleEndianData: Data {
         var value = littleEndian
@@ -674,6 +764,8 @@ actor TinyAyaLlamaContext {
     private var currentPosition: Int32 = 0
     private let maxContext: Int32 = 4096
 
+    private var isShutdown = false
+
     private init(model: OpaquePointer, context: OpaquePointer) {
         self.model = model
         self.context = context
@@ -694,6 +786,17 @@ actor TinyAyaLlamaContext {
     }
 
     deinit {
+        guard !isShutdown else { return }
+        llama_sampler_free(sampler)
+        llama_batch_free(batch)
+        llama_model_free(model)
+        llama_free(context)
+        llama_backend_free()
+    }
+
+    func shutdown() {
+        guard !isShutdown else { return }
+        isShutdown = true
         llama_sampler_free(sampler)
         llama_batch_free(batch)
         llama_model_free(model)

@@ -33,7 +33,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-CANDIDATES = Path("data/benchmark/v2/scraped/candidates.jsonl")
+DEFAULT_CANDIDATES = Path("data/benchmark/v2/scraped/candidates.jsonl")
 OUT_EXTRACTED = Path("data/benchmark/v2/scraped/extracted.jsonl")
 OUT_REJECTED = Path("data/benchmark/v2/scraped/rejected.jsonl")
 
@@ -204,30 +204,34 @@ def parse_json(text: str) -> dict:
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--input", type=Path, default=DEFAULT_CANDIDATES,
+                        help=f"JSONL of candidates to process (default: {DEFAULT_CANDIDATES})")
     parser.add_argument("--limit", type=int, default=None, help="Max candidates to process this run")
     parser.add_argument("--deep-scrape", action="store_true", help="Firecrawl full page for each candidate (costs more)")
-    parser.add_argument("--resume", action="store_true", default=True, help="Skip candidates already extracted")
+    parser.add_argument("--no-resume", action="store_true", help="Re-process URLs already processed (default: resume)")
+    parser.add_argument("--ignore-rejected", action="store_true", help="Re-process URLs previously rejected (useful with --deep-scrape)")
     args = parser.parse_args()
 
-    if not CANDIDATES.exists():
-        print(f"No candidates at {CANDIDATES}. Run scrape_kid_ai_interactions.py first.")
+    candidates_path = args.input
+    if not candidates_path.exists():
+        print(f"No candidates at {candidates_path}.")
         return
 
-    # Load candidates
-    with open(CANDIDATES) as f:
+    with open(candidates_path) as f:
         candidates = [json.loads(l) for l in f]
-    print(f"Loaded {len(candidates)} candidates")
+    print(f"Loaded {len(candidates)} candidates from {candidates_path}")
 
     # Resume: skip ones already processed
+    resume = not args.no_resume
     processed_urls = set()
-    if args.resume and OUT_EXTRACTED.exists():
+    if resume and OUT_EXTRACTED.exists():
         with open(OUT_EXTRACTED) as f:
             for line in f:
                 try:
                     processed_urls.add(json.loads(line)["source_url"])
                 except Exception:
                     continue
-    if args.resume and OUT_REJECTED.exists():
+    if resume and not args.ignore_rejected and OUT_REJECTED.exists():
         with open(OUT_REJECTED) as f:
             for line in f:
                 try:

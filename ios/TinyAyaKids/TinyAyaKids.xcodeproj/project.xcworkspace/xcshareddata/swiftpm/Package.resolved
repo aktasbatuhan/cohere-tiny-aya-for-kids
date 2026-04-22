@@ -1,15 +1,6 @@
 {
-  "originHash" : "e67e01e6512c137283dfd42088cc406c0b8bcc351d5081efeeb176a0cfad3b94",
+  "originHash" : "ddab4c410b3e752296aba3155bafa7a68e778f03ec94fc2ec77898cc5314a763",
   "pins" : [
-    {
-      "identity" : "kokoro-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mlalma/kokoro-ios.git",
-      "state" : {
-        "revision" : "9a1e2614e5898106d00eec7fd21ff2fc89d805a6",
-        "version" : "1.0.10"
-      }
-    },
     {
       "identity" : "misakiswift",
       "kind" : "remoteSourceControl",

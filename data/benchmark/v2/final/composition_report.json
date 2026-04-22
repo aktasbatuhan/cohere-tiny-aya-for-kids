@@ -1,129 +1,151 @@
 {
   "totals": {
-    "all_items": 1038,
+    "all_items": 2312,
     "foundation": 221,
-    "scraped": 40,
-    "translations": 777
+    "scraped": 54,
+    "translations": 2037
   },
   "by_language": {
-    "en": 237,
-    "es": 40,
-    "fr": 40,
-    "tr": 40,
-    "ko": 37,
-    "cs": 37,
-    "ja": 37,
-    "nl": 37,
-    "de": 36,
-    "pt": 36,
-    "zh": 36,
-    "ar": 36,
-    "id": 36,
-    "hi": 36,
-    "it": 36,
-    "pl": 36,
-    "ro": 35,
-    "ru": 35,
-    "sw": 35,
-    "te": 35,
-    "th": 35,
-    "uk": 35,
-    "vi": 35
+    "en": 246,
+    "es": 94,
+    "de": 94,
+    "fr": 94,
+    "pt": 94,
+    "ko": 94,
+    "zh": 94,
+    "ar": 94,
+    "id": 94,
+    "ja": 94,
+    "nl": 94,
+    "tr": 94,
+    "hi": 94,
+    "it": 94,
+    "pl": 94,
+    "ro": 94,
+    "ru": 94,
+    "te": 94,
+    "th": 94,
+    "uk": 94,
+    "vi": 94,
+    "cs": 93,
+    "sw": 93
   },
   "by_origin": {
-    "scraped": 817,
-    "foundation": 221
+    "scraped": 1212,
+    "foundation": 1100
   },
   "by_category": {
-    "safety_redirection": 316,
-    "privacy_boundaries": 229,
-    "general_child_conversation": 207,
-    "creative_engagement": 114,
-    "other": 72,
-    "education_explanation": 46,
-    "emotional_support": 40,
-    "financial_safety": 9,
-    "civic_or_political": 5
+    "safety_redirection": 675,
+    "general_child_conversation": 334,
+    "education_explanation": 310,
+    "privacy_boundaries": 298,
+    "emotional_support": 256,
+    "creative_engagement": 158,
+    "other": 134,
+    "financial_safety": 97,
+    "civic_or_political": 50
   },
   "by_difficulty": {
-    "hard": 644,
-    "easy": 294,
-    "medium": 100
+    "hard": 1401,
+    "medium": 490,
+    "easy": 421
   },
   "is_translation": {
-    "False": 261,
-    "True": 777
+    "False": 275,
+    "True": 2037
   },
   "per_language_composition": {
     "ar": {
-      "scraped": 36
+      "scraped": 54,
+      "foundation": 40
     },
     "cs": {
-      "scraped": 37
+      "scraped": 53,
+      "foundation": 40
     },
     "de": {
-      "scraped": 36
+      "scraped": 54,
+      "foundation": 40
     },
     "en": {
       "foundation": 221,
-      "scraped": 16
+      "scraped": 25
     },
     "es": {
-      "scraped": 40
+      "scraped": 54,
+      "foundation": 40
     },
     "fr": {
-      "scraped": 40
+      "scraped": 54,
+      "foundation": 40
     },
     "hi": {
-      "scraped": 36
+      "scraped": 54,
+      "foundation": 40
     },
     "id": {
-      "scraped": 36
+      "scraped": 54,
+      "foundation": 40
     },
     "it": {
-      "scraped": 36
+      "scraped": 54,
+      "foundation": 40
     },
     "ja": {
-      "scraped": 37
+      "scraped": 54,
+      "foundation": 40
     },
     "ko": {
-      "scraped": 37
+      "scraped": 54,
+      "foundation": 40
     },
     "nl": {
-      "scraped": 37
+      "scraped": 54,
+      "foundation": 40
     },
     "pl": {
-      "scraped": 36
+      "scraped": 54,
+      "foundation": 40
     },
     "pt": {
-      "scraped": 36
+      "scraped": 54,
+      "foundation": 40
     },
     "ro": {
-      "scraped": 35
+      "scraped": 54,
+      "foundation": 40
     },
     "ru": {
-      "scraped": 35
+      "scraped": 54,
+      "foundation": 40
     },
     "sw": {
-      "scraped": 35
+      "scraped": 54,
+      "foundation": 39
     },
     "te": {
-      "scraped": 35
+      "scraped": 54,
+      "foundation": 40
     },
     "th": {
-      "scraped": 35
+      "scraped": 54,
+      "foundation": 40
     },
     "tr": {
-      "scraped": 40
+      "scraped": 54,
+      "foundation": 40
     },
     "uk": {
-      "scraped": 35
+      "scraped": 54,
+      "foundation": 40
     },
     "vi": {
-      "scraped": 35
+      "scraped": 54,
+      "foundation": 40
     },
     "zh": {
-      "scraped": 36
+      "scraped": 54,
+      "foundation": 40
     }
   }
 }

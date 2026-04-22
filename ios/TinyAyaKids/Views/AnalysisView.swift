@@ -1,13 +1,17 @@
 import SwiftUI
+import AVFoundation
+import UIKit
 
 struct AnalysisView: View {
     @Environment(AppState.self) private var appState
     @State private var draft = ""
+    @State private var hasTriggeredAutoLoad = false
 
     private let starterPrompts = [
         "Tell me a bedtime story about a kind moon.",
         "Why do birds sing?",
-        "Can we play a guessing game?"
+        "Can we play a guessing game?",
+        "What makes rainbows?",
     ]
 
     var body: some View {
@@ -18,7 +22,7 @@ struct AnalysisView: View {
                 ScrollView {
                     LazyVStack(spacing: 12) {
                         if appState.tinyAyaService.chatMessages.isEmpty {
-                            EmptyConversationCard()
+                            WelcomeCard(isLoaded: appState.tinyAyaService.isModelLoaded)
                         }
 
                         ForEach(appState.tinyAyaService.chatMessages) { message in
@@ -28,6 +32,10 @@ struct AnalysisView: View {
                     .padding(.horizontal)
                     .padding(.top, 12)
                     .padding(.bottom, 24)
+                }
+
+                if !appState.tinyAyaService.microphonePermissionGranted {
+                    permissionBanner
                 }
 
                 quickPrompts
@@ -46,9 +54,23 @@ struct AnalysisView: View {
                     Text("Aya")
                         .font(.headline)
                 }
+
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        Task { await appState.tinyAyaService.clearConversation() }
+                    } label: {
+                        Image(systemName: "arrow.counterclockwise")
+                    }
+                    .disabled(appState.tinyAyaService.chatMessages.isEmpty || appState.tinyAyaService.isAnalyzing)
+                    .accessibilityLabel("New conversation")
+                }
             }
             .task {
                 await appState.tinyAyaService.requestVoicePermissionsIfNeeded()
+                if !hasTriggeredAutoLoad && !appState.tinyAyaService.isModelLoaded {
+                    hasTriggeredAutoLoad = true
+                    await appState.tinyAyaService.loadModel()
+                }
             }
         }
     }
@@ -72,25 +94,23 @@ struct AnalysisView: View {
                     Text("Offline voice companion")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
-                    Text(appState.tinyAyaService.loadingStatus)
+                    Text(statusLine)
                         .font(.caption)
                         .foregroundStyle(.secondary)
-                    Text(appState.tinyAyaService.voiceStatus)
-                        .font(.caption)
-                        .foregroundStyle(appState.tinyAyaService.isListening ? .red : .secondary)
+                        .lineLimit(2)
                 }
 
                 Spacer()
-
-                Button(appState.tinyAyaService.isModelLoaded ? "Ready" : "Load Aya") {
-                    Task { await appState.tinyAyaService.loadModel() }
-                }
-                .buttonStyle(.borderedProminent)
-                .disabled(appState.tinyAyaService.isLoading || appState.tinyAyaService.isModelLoaded)
             }
 
             if appState.tinyAyaService.isLoading {
-                ProgressView(value: appState.tinyAyaService.loadingProgress)
+                VStack(spacing: 6) {
+                    ProgressView(value: appState.tinyAyaService.loadingProgress)
+                    Text(appState.tinyAyaService.loadingStatus)
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
             }
 
             if let error = appState.tinyAyaService.errorMessage {
@@ -107,7 +127,7 @@ struct AnalysisView: View {
                     HStack(spacing: 10) {
                         Image(systemName: appState.tinyAyaService.isListening ? "stop.circle.fill" : "mic.circle.fill")
                             .font(.system(size: 22, weight: .semibold))
-                        Text(appState.tinyAyaService.isListening ? "Stop And Send" : "Talk To Aya")
+                        Text(talkButtonLabel)
                             .fontWeight(.semibold)
                     }
                     .frame(maxWidth: .infinity)
@@ -115,7 +135,7 @@ struct AnalysisView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(appState.tinyAyaService.isListening ? .red : .orange)
-                .disabled(!appState.tinyAyaService.isModelLoaded || appState.tinyAyaService.isAnalyzing)
+                .disabled(!appState.tinyAyaService.isModelLoaded || appState.tinyAyaService.isAnalyzing || !appState.tinyAyaService.microphonePermissionGranted)
 
                 if !appState.tinyAyaService.liveTranscript.isEmpty {
                     Text(appState.tinyAyaService.liveTranscript)
@@ -133,14 +153,60 @@ struct AnalysisView: View {
         .padding(.top, 12)
     }
 
+    private var statusLine: String {
+        if appState.tinyAyaService.isLoading {
+            return appState.tinyAyaService.loadingStatus
+        }
+        if !appState.tinyAyaService.isModelLoaded {
+            return "Getting ready..."
+        }
+        return appState.tinyAyaService.voiceStatus
+    }
+
+    private var talkButtonLabel: String {
+        if appState.tinyAyaService.isListening {
+            return "Stop And Send"
+        }
+        if !appState.tinyAyaService.isModelLoaded {
+            return "Aya is getting ready..."
+        }
+        return "Talk To Aya"
+    }
+
+    private var permissionBanner: some View {
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: "mic.slash.fill")
+                .font(.title3)
+                .foregroundStyle(.orange)
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Microphone off")
+                    .font(.subheadline.weight(.semibold))
+                Text("Aya needs the microphone to hear you. You can still type.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            Spacer()
+            Button("Open Settings") {
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url)
+                }
+            }
+            .buttonStyle(.bordered)
+            .controlSize(.small)
+        }
+        .padding(12)
+        .background(Color.orange.opacity(0.08))
+    }
+
     private var quickPrompts: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
                 ForEach(starterPrompts, id: \.self) { prompt in
                     Button(prompt) {
-                        draft = prompt
+                        Task { await appState.tinyAyaService.sendMessage(prompt) }
                     }
                     .buttonStyle(.bordered)
+                    .disabled(!appState.tinyAyaService.isModelLoaded || appState.tinyAyaService.isAnalyzing)
                 }
             }
             .padding(.horizontal)
@@ -203,15 +269,35 @@ private struct ChatBubble: View {
     }
 }
 
-private struct EmptyConversationCard: View {
+private struct WelcomeCard: View {
+    let isLoaded: Bool
+
     var body: some View {
-        VStack(spacing: 10) {
-            Text("Aya is ready")
-                .font(.headline)
-            Text("Start talking or type a message when Aya is loaded.")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
+        VStack(spacing: 12) {
+            Image(systemName: "face.smiling.fill")
+                .font(.system(size: 44))
+                .foregroundStyle(.orange)
+
+            Text("Hi, I'm Aya!")
+                .font(.title2.weight(.semibold))
+
+            Text(isLoaded
+                ? "Ask me anything, or tap a card below to get started. I live on your phone, so we can chat even without the internet."
+                : "I'm getting ready for our first chat. This only takes a moment the first time."
+            )
+            .font(.subheadline)
+            .foregroundStyle(.secondary)
+            .multilineTextAlignment(.center)
+
+            HStack(spacing: 8) {
+                Image(systemName: "lock.shield.fill")
+                    .font(.caption)
+                    .foregroundStyle(.green)
+                Text("Fully on-device. Nothing leaves your phone.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(.top, 4)
         }
         .frame(maxWidth: .infinity)
         .padding(24)

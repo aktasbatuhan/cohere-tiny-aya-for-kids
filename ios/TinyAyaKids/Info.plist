@@ -75,8 +75,10 @@
         </dict>
     </dict>
     <key>NSMicrophoneUsageDescription</key>
-    <string>TinyAya Kids uses the microphone so children can talk with Aya by voice.</string>
+    <string>TinyAya Kids uses the microphone so children can talk with Aya by voice. All audio is processed on-device and never leaves your phone.</string>
     <key>NSSpeechRecognitionUsageDescription</key>
     <string>TinyAya Kids uses speech recognition to turn a child's voice into text before sending it to Aya on device.</string>
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false/>
 </dict>
 </plist>

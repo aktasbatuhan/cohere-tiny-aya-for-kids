@@ -1,0 +1,30 @@
+{
+  "total_raw_hits": 850,
+  "new_candidates": 757,
+  "per_source_lang": {
+    "firecrawl/en": 100,
+    "firecrawl/tr": 50,
+    "firecrawl/es": 50,
+    "firecrawl/de": 50,
+    "firecrawl/fr": 50,
+    "firecrawl/pt": 40,
+    "firecrawl/it": 40,
+    "firecrawl/ja": 40,
+    "firecrawl/ko": 40,
+    "firecrawl/zh": 40,
+    "firecrawl/ar": 30,
+    "firecrawl/hi": 30,
+    "firecrawl/ru": 30,
+    "firecrawl/id": 30,
+    "firecrawl/vi": 30,
+    "firecrawl/pl": 30,
+    "firecrawl/nl": 30,
+    "firecrawl/cs": 30,
+    "firecrawl/ro": 30,
+    "firecrawl/uk": 30,
+    "firecrawl/sw": 20,
+    "firecrawl/th": 20,
+    "firecrawl/te": 10
+  },
+  "run_at": 1776851801.1414669
+}

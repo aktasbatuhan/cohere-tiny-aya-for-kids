@@ -19,7 +19,7 @@ image = (
     image=image,
     secrets=[modal.Secret.from_name("huggingface-secret")],
     timeout=1800,
-    volumes={MODEL_PATH: volume}  # Mount the volume here
+    volumes={MODEL_PATH: volume},
 )
 def upload_models_to_volume(models: list):
     from huggingface_hub import snapshot_download

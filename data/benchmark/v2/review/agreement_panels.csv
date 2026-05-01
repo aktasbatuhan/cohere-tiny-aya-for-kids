@@ -1,0 +1,16 @@
+panel_size,judges,n,unanim_pct,fleiss_kappa
+3,deepseek+cohere+gpt-5.4,984,54.7,0.3906
+3,deepseek+cohere+gemini,967,74.4,0.6343
+3,deepseek+cohere+mimo,693,79.8,0.691
+3,deepseek+gpt-5.4+gemini,1667,66.0,0.5261
+3,deepseek+gpt-5.4+mimo,987,61.8,0.4898
+3,deepseek+gemini+mimo,1033,79.1,0.7183
+3,cohere+gpt-5.4+gemini,969,55.4,0.4051
+3,cohere+gpt-5.4+mimo,694,56.3,0.407
+3,cohere+gemini+mimo,682,75.5,0.6379
+3,gpt-5.4+gemini+mimo,975,62.6,0.4982
+4,deepseek+cohere+gpt-5.4+gemini,967,53.2,0.4856
+4,deepseek+cohere+gpt-5.4+mimo,693,54.4,0.4905
+4,deepseek+cohere+gemini+mimo,681,73.3,0.679
+4,deepseek+gpt-5.4+gemini+mimo,974,60.1,0.566
+4,cohere+gpt-5.4+gemini+mimo,682,54.3,0.4869
